@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SISTEMA BLW SEGURO | ALIMENTACIÓN INFANTIL 2026</title>
+    <title>SISTEMA BLW SEGURO | EL ESTÁNDAR DORADO 2026</title>
     
     <script>
       !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -21,14 +21,16 @@
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;600;700;900&family=Playfair+Display:ital,wght@0,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --primary: #ff5f40;
+            --primary-dark: #e64a2e;
             --secondary: #0a0f1c;
             --accent: #ffd1c7;
+            --bg-light: #fffaf8;
         }
 
         body { 
@@ -36,274 +38,354 @@
             background-color: #ffffff; 
             color: #1e293b;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         .serif { font-family: 'Playfair Display', serif; }
 
-        /* --- SISTEMA DE ANIMACIÓN --- */
+        /* --- SISTEMA DE REVELACIÓN PRO --- */
         .reveal {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
+            transform: translateY(40px);
+            transition: all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1);
         }
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* --- BOTÓN DE ALTO IMPACTO --- */
-        .btn-premium {
-            background: linear-gradient(135deg, #ff5f40 0%, #ff3d1a 100%);
+        /* --- BOTÓN ELITE CON EFECTO DE PROFUNDIDAD --- */
+        .btn-elite {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            box-shadow: 0 15px 30px rgba(255, 95, 64, 0.4);
+            z-index: 1;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 20px 40px rgba(255, 95, 64, 0.4), inset 0 0 0 0px rgba(255,255,255,0.2);
         }
-        .btn-premium:active { transform: scale(0.95); }
-
-        .btn-premium::after {
+        .btn-elite:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(255, 95, 64, 0.6), inset 0 0 20px rgba(255,255,255,0.2);
+        }
+        .btn-elite::after {
             content: "";
             position: absolute;
             top: -50%;
             left: -100%;
             width: 50%;
             height: 200%;
-            background: rgba(255, 255, 255, 0.2);
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
             transform: rotate(30deg);
-            animation: shine 4s infinite;
+            animation: lightSweep 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
         }
-        @keyframes shine {
+        @keyframes lightSweep {
             0% { left: -100%; }
             20% { left: 150%; }
             100% { left: 150%; }
         }
 
-        /* --- CARRUSEL INFINITO (SIN CORTES) --- */
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-320px * 5 - 1.5rem * 5)); }
+        /* --- PRECIO TITÁNICO (CORREGIDO) --- */
+        .price-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 0.85;
         }
-        .marquee {
+        .price-symbol { font-size: 0.4em; margin-top: 0.2em; margin-right: 0.1em; color: #0a0f1c; }
+        .price-main { font-size: 1.2em; letter-spacing: -0.05em; }
+        .price-decimal { font-size: 0.4em; margin-top: 0.2em; color: #0a0f1c; }
+
+        /* --- CARRUSEL INFINITO DE ALTA DENSIDAD --- */
+        @keyframes scrollInfinite {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-360px * 5)); }
+        }
+        .testimonial-stream {
             display: flex;
             width: max-content;
-            animation: scroll 35s linear infinite;
+            animation: scrollInfinite 45s linear infinite;
         }
-        .marquee:hover { animation-play-state: paused; }
-        
-        .testimonial-card {
-            width: 320px;
-            margin-right: 1.5rem;
+        .testimonial-stream:hover { animation-play-state: paused; }
+        .t-card {
+            width: 360px;
+            margin: 0 1rem;
             background: white;
-            padding: 2rem;
-            border-radius: 2rem;
+            padding: 2.5rem;
+            border-radius: 2.5rem;
             border: 1px solid #f1f5f9;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.02);
             flex-shrink: 0;
         }
 
-        /* --- TIPOGRAFÍA DE PRECIO CORREGIDA --- */
-        .price-font {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 900;
-            line-height: 1; /* Evita superposición */
-            letter-spacing: -0.05em;
+        /* --- DECORACIONES --- */
+        .blob-bg {
+            position: absolute;
+            z-index: -1;
+            filter: blur(100px);
+            opacity: 0.5;
+            border-radius: 50%;
         }
 
-        /* --- ACORDEÓN --- */
-        details summary::-webkit-details-marker { display: none; }
-        details[open] .icon-chevron { transform: rotate(180deg); }
+        /* --- MÓVIL OPTIMIZACIÓN --- */
+        @media (max-width: 768px) {
+            .price-container { font-size: 100px; }
+            .t-card { width: 300px; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="bg-primary text-white py-2 px-4 sticky top-0 z-[1000] shadow-xl">
-        <div class="max-w-7xl mx-auto flex justify-center items-center text-[10px] md:text-xs font-black uppercase tracking-[0.15em]">
-            <span class="animate-pulse mr-2">●</span> Oferta finaliza en: <span id="timer" class="ml-2 bg-black/20 px-2 py-0.5 rounded">00:00:00</span>
+    <div class="bg-black text-white py-3 px-6 sticky top-0 z-[2000] border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-3">
+                <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                </span>
+                <p class="text-[10px] font-black uppercase tracking-[0.2em]">Acceso con 95% de descuento activo</p>
+            </div>
+            <div class="text-[10px] font-black uppercase tracking-[0.2em]">
+                Oferta expira en: <span id="timer" class="text-primary ml-1">00:00:00</span>
+            </div>
         </div>
     </div>
 
-    <header class="relative pt-12 pb-20 md:pt-24 md:pb-32 px-6 overflow-hidden">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-            <div class="reveal active text-center lg:text-left">
-                <span class="inline-block bg-orange-50 text-primary px-4 py-2 rounded-full font-bold text-[10px] uppercase tracking-widest mb-6">Metodología 2026</span>
-                <h1 class="serif text-5xl md:text-8xl leading-[1.1] mb-6 text-slate-900">
-                    Comer seguro es <span class="text-primary italic">disfrutar</span> juntos.
-                </h1>
-                <p class="text-lg md:text-xl text-slate-500 font-light mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                    Elimina el miedo al atragantamiento con nuestro sistema de cortes de precisión diseñado por expertos en nutrición infantil.
-                </p>
-                <div class="flex flex-col items-center lg:items-start gap-4">
-                    <a href="#oferta" class="btn-premium text-white px-10 py-6 rounded-2xl font-black text-xl md:text-2xl italic w-full md:w-auto text-center">
-                        ¡ACCEDER AHORA POR $9.99!
-                    </a>
-                    <div class="flex items-center gap-2 mt-2">
-                        <div class="flex text-yellow-400 text-[10px]">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">+12k Alumnas</span>
-                    </div>
-                </div>
-            </div>
-            <div class="relative reveal active lg:mt-0 mt-12">
-                <img src="https://img.freepik.com/fotos-premium/bebe-feliz-sentado-su-silla-comiendo-si-mismo-manos-cara-manchadas-comida-bebes_1062229-1041.jpg" 
-                     class="rounded-[2.5rem] shadow-2xl w-full h-[400px] md:h-[600px] object-cover border-8 border-white" alt="Bebé Seguro">
-                <div class="absolute -bottom-6 -right-4 md:-right-10 bg-white p-6 rounded-2xl shadow-xl hidden md:block border border-slate-50">
-                    <p class="text-primary font-black text-sm uppercase tracking-tighter italic">Validado 100%</p>
-                    <p class="text-[10px] font-bold text-slate-400">Seguridad Alimentaria</p>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <section class="py-20 px-6 bg-slate-50">
-        <div class="max-w-4xl mx-auto text-center mb-16 reveal">
-            <h2 class="serif text-4xl md:text-6xl mb-6">¿Por qué el <span class="text-red-600 underline decoration-red-100">miedo</span> te detiene?</h2>
-            <p class="text-slate-500 italic text-sm md:text-base font-medium">No es tu culpa. Nadie nos enseña a confiar en la capacidad de nuestros hijos.</p>
-        </div>
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-6 md:gap-8">
-            <div class="bg-white p-8 md:p-12 rounded-[2rem] border-l-8 border-red-500 shadow-sm reveal">
-                <h4 class="font-black text-xl mb-4 italic uppercase">1. Cortes Incorrectos</h4>
-                <p class="text-slate-500 text-sm leading-relaxed">El 90% de los sustos ocurren por ofrecer alimentos circulares o muy duros. Te enseñamos la técnica del "Bocado Blando".</p>
-            </div>
-            <div class="bg-white p-8 md:p-12 rounded-[2rem] border-l-8 border-red-500 shadow-sm reveal" style="transition-delay: 100ms;">
-                <h4 class="font-black text-xl mb-4 italic uppercase">2. La Trampa del Puré</h4>
-                <p class="text-slate-500 text-sm leading-relaxed">Depender solo de papillas después de los 8 meses puede retrasar el desarrollo orofacial y la aceptación de texturas sólidas.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 md:py-32 px-6">
+    <section class="relative pt-12 md:pt-28 pb-20 md:pb-40 px-6 overflow-hidden bg-white">
+        <div class="blob-bg bg-orange-100 w-[600px] h-[600px] -top-40 -right-40"></div>
         <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-            <div class="order-2 lg:order-1 relative reveal">
-                <img src="https://images.unsplash.com/photo-1536640712247-3a97c7c39710?auto=format&fit=crop&q=80&w=1000" 
-                     class="rounded-[2.5rem] shadow-2xl w-full h-[400px] md:h-[550px] object-cover" alt="Madre e hijo comiendo">
-                <div class="absolute inset-0 bg-primary/10 rounded-[2.5rem]"></div>
-            </div>
-            <div class="order-1 lg:order-2 reveal">
-                <h2 class="serif text-4xl md:text-7xl mb-10 leading-tight italic">Un acompañamiento <span class="text-primary">paso a paso.</span></h2>
-                <div class="space-y-8">
-                    <div class="flex gap-6">
-                        <div class="shrink-0 w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center font-black">1</div>
-                        <div>
-                            <h5 class="font-black italic uppercase tracking-tighter mb-1">Guía Visual de Cortes</h5>
-                            <p class="text-slate-500 text-sm">Más de 50 alimentos fotografiados en el ángulo exacto para que no tengas dudas.</p>
+            <div class="reveal active">
+                <div class="inline-flex items-center gap-3 bg-slate-900 text-white px-5 py-2.5 rounded-full mb-8">
+                    <span class="bg-primary w-2 h-2 rounded-full"></span>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em]">Certificado Oficial 2026</span>
+                </div>
+                <h1 class="serif text-6xl md:text-[6.5rem] leading-[0.9] mb-10 text-slate-900">
+                    Tu bebé come, <br><span class="text-primary italic">tú descansas.</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-500 font-light leading-relaxed mb-12 max-w-xl">
+                    El sistema definitivo de cortes de seguridad que transforma el miedo al atragantamiento en la alegría de ver a tu hijo nutrirse solo.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center gap-8">
+                    <a href="#oferta" class="btn-elite text-white px-12 py-8 rounded-[2rem] font-black text-2xl italic tracking-tight w-full sm:w-auto text-center">
+                        ¡COMPRAR POR $9.99!
+                    </a>
+                    <div class="flex items-center gap-4">
+                        <div class="flex -space-x-4">
+                            <img src="https://i.pravatar.cc/100?u=1" class="w-12 h-12 rounded-full border-4 border-white">
+                            <img src="https://i.pravatar.cc/100?u=2" class="w-12 h-12 rounded-full border-4 border-white">
+                            <img src="https://i.pravatar.cc/100?u=3" class="w-12 h-12 rounded-full border-4 border-white">
                         </div>
+                        <p class="text-[10px] font-bold text-slate-400 leading-tight uppercase tracking-widest">Unite a +12,000 <br>mamás seguras</p>
                     </div>
-                    <div class="flex gap-6">
-                        <div class="shrink-0 w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center font-black">2</div>
-                        <div>
-                            <h5 class="font-black italic uppercase tracking-tighter mb-1">Protocolo SOS</h5>
-                            <p class="text-slate-500 text-sm">Aprende a diferenciar una arcada (normal) de un atragantamiento (acción) en segundos.</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-6">
-                        <div class="shrink-0 w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center font-black">3</div>
-                        <div>
-                            <h5 class="font-black italic uppercase tracking-tighter mb-1">Recetario de 21 Días</h5>
-                            <p class="text-slate-500 text-sm">Planes de comida equilibrados para que no pierdas tiempo pensando qué cocinar.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 bg-slate-900 overflow-hidden">
-        <h2 class="serif text-3xl md:text-5xl text-white text-center mb-16 italic">Comunidad Nutri-Safe</h2>
-        <div class="marquee">
-            <div class="testimonial-card">
-                <div class="flex items-center gap-4 mb-4">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100" class="w-12 h-12 rounded-full object-cover">
-                    <div><p class="font-black text-xs italic">Lucía M.</p><p class="text-yellow-400 text-[8px]"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p></div>
-                </div>
-                <p class="text-slate-600 text-xs italic leading-relaxed">"Lo que más me gustó fue la claridad de las fotos. Por fin entiendo cómo ofrecerle pollo sin miedo."</p>
-            </div>
-            <div class="testimonial-card">
-                <div class="flex items-center gap-4 mb-4">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=100" class="w-12 h-12 rounded-full object-cover">
-                    <div><p class="font-black text-xs italic">Martina S.</p><p class="text-yellow-400 text-[8px]"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p></div>
-                </div>
-                <p class="text-slate-600 text-xs italic leading-relaxed">"La inversión más pequeña que he hecho para mi bebé y la que más tranquilidad me ha dado."</p>
-            </div>
-            <div class="testimonial-card">
-                <div class="flex items-center gap-4 mb-4">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=100" class="w-12 h-12 rounded-full object-cover">
-                    <div><p class="font-black text-xs italic">Elena G.</p><p class="text-yellow-400 text-[8px]"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p></div>
-                </div>
-                <p class="text-slate-600 text-xs italic leading-relaxed">"El bono de los alérgenos es vital. Me quitó el miedo a darle huevo y frutos secos. ¡Recomendado!"</p>
-            </div>
-            <div class="testimonial-card">
-                <div class="flex items-center gap-4 mb-4">
-                    <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&q=80&w=100" class="w-12 h-12 rounded-full object-cover">
-                    <div><p class="font-black text-xs italic">Valeria F.</p><p class="text-yellow-400 text-[8px]"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p></div>
-                </div>
-                <p class="text-slate-600 text-xs italic leading-relaxed">"Mi bebé de 7 meses ya come solo con sus manos. Verlo disfrutar la comida no tiene precio."</p>
-            </div>
-            <div class="testimonial-card">...</div><div class="testimonial-card">...</div>
-        </div>
-    </section>
-
-    <section id="oferta" class="py-20 px-6">
-        <div class="max-w-5xl mx-auto bg-slate-900 rounded-[3rem] overflow-hidden flex flex-col lg:grid lg:grid-cols-12 shadow-2xl">
-            <div class="lg:col-span-7 p-10 md:p-20 text-white">
-                <h2 class="serif text-4xl md:text-6xl mb-10 italic">Tu acceso vitalicio hoy:</h2>
-                <div class="space-y-5 mb-10">
-                    <p class="flex items-center gap-3 text-sm md:text-base font-bold italic">✅ Guía Maestra de Cortes BLW</p>
-                    <p class="flex items-center gap-3 text-sm md:text-base font-bold italic">✅ Recetario 180+ Ideas Saludables</p>
-                    <p class="flex items-center gap-3 text-primary text-sm md:text-base font-black italic">🎁 Bono: Protocolo Alérgenos (GRATIS)</p>
-                    <p class="flex items-center gap-3 text-primary text-sm md:text-base font-black italic">🎁 Bono: Menú Semanal de 21 Días (GRATIS)</p>
-                </div>
-                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 italic text-white/60 text-[10px] md:text-xs">
-                    *Incluye todas las actualizaciones futuras del sistema sin cargos adicionales.
                 </div>
             </div>
             
-            <div class="lg:col-span-5 bg-white p-10 md:p-20 text-center flex flex-col justify-center items-center">
-                <p class="text-slate-400 line-through text-xl md:text-2xl font-bold mb-2">$197 USD</p>
-                <div class="price-font text-primary text-[80px] md:text-[140px]">
-                    $9<span class="text-slate-900 text-3xl md:text-6xl">.99</span>
+            <div class="relative reveal active" style="transition-delay: 200ms;">
+                <div class="absolute inset-0 border-[20px] border-slate-50 rounded-[4rem] -m-6 -z-10"></div>
+                <img src="https://img.freepik.com/fotos-premium/bebe-feliz-sentado-su-silla-comiendo-si-mismo-manos-cara-manchadas-comida-bebes_1062229-1041.jpg" 
+                     class="rounded-[4rem] shadow-2xl w-full h-[500px] md:h-[650px] object-cover" alt="Bebé Feliz">
+                
+                <div class="absolute -bottom-10 -left-10 bg-white p-10 rounded-[3rem] shadow-2xl max-w-[280px] hidden md:block border border-slate-50">
+                    <i class="fas fa-quote-left text-primary text-3xl mb-4"></i>
+                    <p class="serif text-xl italic font-bold leading-tight mb-4">"Cambié el miedo por la cámara, ahora solo grabo lo lindo que come."</p>
+                    <p class="text-[10px] font-black text-slate-300 uppercase">Ana M. - Alumna VIP</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 px-6 bg-slate-50 border-y border-slate-100">
+        <div class="max-w-4xl mx-auto text-center mb-24 reveal">
+            <h2 class="serif text-4xl md:text-7xl mb-10 italic leading-none">El riesgo real no es la comida, <span class="text-red-600 block">es la ignorancia.</span></h2>
+            <p class="text-lg text-slate-500 font-medium italic">Un corte equivocado puede provocar un susto que te haga retroceder meses en el desarrollo de tu bebé.</p>
+        </div>
+
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white p-12 rounded-[3.5rem] shadow-xl border-t-[12px] border-red-500 reveal">
+                <div class="w-16 h-16 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center text-3xl mb-8"><i class="fas fa-exclamation-triangle"></i></div>
+                <h4 class="font-black text-2xl italic mb-6 uppercase tracking-tighter">Obstrucción en Moneda</h4>
+                <p class="text-slate-500 text-sm leading-relaxed mb-6">Cortar salchichas, uvas o zanahorias en círculos crea un "tapón" perfecto para la tráquea. Te enseñamos a romper esa forma mortal.</p>
+                <div class="h-1 w-12 bg-red-100"></div>
+            </div>
+            <div class="bg-white p-12 rounded-[3.5rem] shadow-xl border-t-[12px] border-red-500 reveal" style="transition-delay: 200ms;">
+                <div class="w-16 h-16 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center text-3xl mb-8"><i class="fas fa-user-slash"></i></div>
+                <h4 class="font-black text-2xl italic mb-6 uppercase tracking-tighter">Pánico del Cuidador</h4>
+                <p class="text-slate-500 text-sm leading-relaxed mb-6">El 70% de los atragantamientos reales ocurren porque un cuidador nervioso intentó meter el dedo en la boca del bebé. Te damos el protocolo de NO intervención.</p>
+                <div class="h-1 w-12 bg-red-100"></div>
+            </div>
+            <div class="bg-white p-12 rounded-[3.5rem] shadow-xl border-t-[12px] border-red-500 reveal" style="transition-delay: 400ms;">
+                <div class="w-16 h-16 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center text-3xl mb-8"><i class="fas fa-clock"></i></div>
+                <h4 class="font-black text-2xl italic mb-6 uppercase tracking-tighter">Ventana de Oro Perdida</h4>
+                <p class="text-slate-500 text-sm leading-relaxed mb-6">Entre los 6 y 10 meses el bebé tiene el reflejo de masticación activo. Si lo pierdes por miedo, tendrás un niño que rechaza todo lo sólido.</p>
+                <div class="h-1 w-12 bg-red-100"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 px-6 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
+            <div class="relative reveal">
+                <div class="absolute -top-10 -left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+                <img src="https://images.unsplash.com/photo-1536640712247-3a97c7c39710?auto=format&fit=crop&q=80&w=1200" 
+                     class="rounded-[4rem] shadow-2xl w-full aspect-[4/5] object-cover border-4 border-white relative z-10" alt="Madre e hijo">
+                <div class="absolute -bottom-6 -right-6 bg-slate-900 text-white p-12 rounded-[3rem] z-20 hidden md:block">
+                    <p class="serif text-3xl italic mb-2">"Paz Mental"</p>
+                    <p class="text-[10px] font-black text-primary uppercase tracking-[0.4em]">Incluido en el Sistema</p>
+                </div>
+            </div>
+            
+            <div class="reveal">
+                <h2 class="serif text-5xl md:text-[5rem] leading-[1.1] mb-12 italic">No estás sola, <br><span class="text-primary">estás guiada.</span></h2>
+                
+                <div class="space-y-12">
+                    <div class="group">
+                        <div class="flex items-center gap-6 mb-4">
+                            <span class="text-6xl font-black text-slate-100 group-hover:text-primary/20 transition-colors">01</span>
+                            <h4 class="font-black text-2xl italic uppercase tracking-tighter">Guía de Cortes HD</h4>
+                        </div>
+                        <p class="text-slate-500 leading-relaxed ml-16 italic">Fotos reales de cada alimento (fruta, verdura, carne) para que sepas exactamente qué textura y qué largo debe tener según su edad.</p>
+                    </div>
+                    <div class="group">
+                        <div class="flex items-center gap-6 mb-4">
+                            <span class="text-6xl font-black text-slate-100 group-hover:text-primary/20 transition-colors">02</span>
+                            <h4 class="font-black text-2xl italic uppercase tracking-tighter">Semáforo de Alérgenos</h4>
+                        </div>
+                        <p class="text-slate-500 leading-relaxed ml-16 italic">Huevo, maní, lácteos... Te enseñamos la técnica de introducción de 3 días para detectar cualquier reacción sin colapsar el sistema inmune.</p>
+                    </div>
+                    <div class="group">
+                        <div class="flex items-center gap-6 mb-4">
+                            <span class="text-6xl font-black text-slate-100 group-hover:text-primary/20 transition-colors">03</span>
+                            <h4 class="font-black text-2xl italic uppercase tracking-tighter">Menú de 21 Días</h4>
+                        </div>
+                        <p class="text-slate-500 leading-relaxed ml-16 italic">Para que no te despiertes preguntándote "¿Y hoy qué le doy?". Nutrición equilibrada desde el día 1.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 px-6 bg-slate-900 text-white">
+        <div class="max-w-4xl mx-auto text-center mb-20 reveal">
+            <h2 class="serif text-4xl md:text-6xl italic mb-6">¿Por qué elegir <span class="text-primary">Nutri-Safe?</span></h2>
+        </div>
+        <div class="max-w-5xl mx-auto overflow-hidden rounded-[3rem] border border-white/10 reveal">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-white/5 font-black text-[10px] md:text-xs uppercase tracking-widest italic">
+                        <th class="p-8 border-b border-white/10">Característica</th>
+                        <th class="p-8 border-b border-white/10 text-primary">Sistema Nutri-Safe</th>
+                        <th class="p-8 border-b border-white/10 text-slate-500">Internet / YouTube</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm italic font-medium">
+                    <tr>
+                        <td class="p-8 border-b border-white/10">Fotos de Cortes HD</td>
+                        <td class="p-8 border-b border-white/10 text-primary">✅ 180+ Referencias</td>
+                        <td class="p-8 border-b border-white/10 text-slate-500">❌ Información Vaga</td>
+                    </tr>
+                    <tr>
+                        <td class="p-8 border-b border-white/10">Protocolo de Alérgenos</td>
+                        <td class="p-8 border-b border-white/10 text-primary">✅ Incluido</td>
+                        <td class="p-8 border-b border-white/10 text-slate-500">❌ Riesgoso</td>
+                    </tr>
+                    <tr>
+                        <td class="p-8 border-b border-white/10">Acceso Vitalicio</td>
+                        <td class="p-8 border-b border-white/10 text-primary">✅ Sí, para siempre</td>
+                        <td class="p-8 border-b border-white/10 text-slate-500">❌ Sesiones únicas</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="py-32 bg-white overflow-hidden">
+        <h2 class="serif text-5xl text-center mb-20 italic">Historias de <span class="text-primary underline">Éxito Real</span></h2>
+        <div class="testimonial-stream">
+            <div class="t-card">
+                <div class="flex items-center gap-5 mb-8">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150" class="w-16 h-16 rounded-full object-cover">
+                    <div><p class="font-black text-sm italic">Laura P.</p><div class="text-yellow-400 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
+                </div>
+                <p class="text-slate-500 text-sm leading-relaxed italic italic font-light italic italic font-light">"Compré el curso por el miedo al atragantamiento. Las fotos de los cortes son increíbles, mi hija de 7 meses ya come sola."</p>
+            </div>
+            <div class="t-card">
+                <div class="flex items-center gap-5 mb-8">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150" class="w-16 h-16 rounded-full object-cover">
+                    <div><p class="font-black text-sm italic">Ana G.</p><div class="text-yellow-400 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
+                </div>
+                <p class="text-slate-500 text-sm leading-relaxed italic">"El recetario me salvó la vida. Antes perdía horas pensando qué cocinar, ahora tengo todo listo en 15 minutos."</p>
+            </div>
+            <div class="t-card">
+                <div class="flex items-center gap-5 mb-8">
+                    <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&q=80&w=150" class="w-16 h-16 rounded-full object-cover">
+                    <div><p class="font-black text-sm italic">Sofía R.</p><div class="text-yellow-400 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
+                </div>
+                <p class="text-slate-500 text-sm leading-relaxed italic">"Increíble calidad por $9.99. No esperaba tanto material gráfico y técnico. Vale mucho más."</p>
+            </div>
+            <div class="t-card">...</div><div class="t-card">...</div>
+        </div>
+    </section>
+
+    <section id="oferta" class="py-32 px-6">
+        <div class="max-w-6xl mx-auto bg-slate-900 rounded-[4rem] overflow-hidden flex flex-col lg:grid lg:grid-cols-12 shadow-[0_60px_120px_rgba(0,0,0,0.5)]">
+            
+            <div class="lg:col-span-7 p-12 md:p-24 text-white">
+                <h2 class="serif text-5xl md:text-7xl mb-12 italic leading-tight">Empieza hoy con <br><span class="text-primary italic">todo incluido.</span></h2>
+                <div class="space-y-6 mb-16">
+                    <div class="flex justify-between items-center border-b border-white/5 pb-4">
+                        <span class="font-bold italic italic font-light italic">✅ Guía Maestra de Cortes BLW</span>
+                        <span class="text-white/20 line-through">$67</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/5 pb-4">
+                        <span class="font-bold italic">✅ Recetario 180+ Ideas Nutritivas</span>
+                        <span class="text-white/20 line-through">$47</span>
+                    </div>
+                    <div class="flex justify-between items-center text-primary font-black italic">
+                        <span>🎁 Bono: Menú Semanal 21 Días</span>
+                        <span class="uppercase text-[10px] tracking-widest">Gratis</span>
+                    </div>
+                    <div class="flex justify-between items-center text-primary font-black italic">
+                        <span>🎁 Bono: Guía de Alérgenos</span>
+                        <span class="uppercase text-[10px] tracking-widest">Gratis</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6 bg-white/5 p-8 rounded-3xl border border-white/10">
+                    <i class="fas fa-shield-check text-4xl text-primary"></i>
+                    <p class="text-xs text-white/60 italic">Tu compra está protegida por Hotmart. Tienes 7 días para probar el material o pedir el reembolso total.</p>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 bg-white p-12 md:p-24 text-center flex flex-col justify-center items-center relative">
+                <p class="text-slate-400 font-bold line-through text-2xl mb-4">$197.00 USD</p>
+                
+                <div class="price-container text-[120px] md:text-[180px]">
+                    <span class="price-symbol">$</span>
+                    <span class="price-main">9</span>
+                    <span class="price-decimal">.99</span>
+                </div>
+
                 <a href="https://go.hotmart.com/H104335447R?ap=ff26" 
                    onclick="trackCheckout()"
-                   class="btn-premium text-white w-full py-6 md:py-8 rounded-2xl font-black text-2xl md:text-3xl italic uppercase mt-8">
+                   class="btn-elite text-white w-full py-10 rounded-[2.5rem] font-black text-3xl italic uppercase mt-12 shadow-2xl">
                     ¡ACCESO VIP!
                 </a>
-                <p class="mt-6 text-[9px] font-black text-slate-400 uppercase tracking-widest">Pago Seguro • Garantía 7 Días</p>
+                <p class="mt-8 text-[10px] font-black text-slate-300 uppercase tracking-[0.4em]">Único pago • Acceso de por vida</p>
             </div>
         </div>
     </section>
 
-    <section class="py-20 px-6 bg-slate-50">
-        <div class="max-w-3xl mx-auto">
-            <h2 class="serif text-4xl text-center mb-12 italic">Dudas Comunes</h2>
-            <div class="space-y-3">
-                <details class="group bg-white rounded-2xl border border-slate-100 shadow-sm transition-all overflow-hidden">
-                    <summary class="flex justify-between items-center p-6 cursor-pointer font-bold italic text-slate-700 list-none">
-                        ¿Cómo recibo mi acceso? <i class="fas fa-chevron-down text-primary icon-chevron transition-transform duration-300"></i>
-                    </summary>
-                    <p class="px-6 pb-6 text-slate-500 text-sm italic">De inmediato. Una vez realizado el pago, Hotmart te envía un email con los datos para acceder a tu área de alumnos.</p>
-                </details>
-                <details class="group bg-white rounded-2xl border border-slate-100 shadow-sm transition-all overflow-hidden">
-                    <summary class="flex justify-between items-center p-6 cursor-pointer font-bold italic text-slate-700 list-none">
-                        ¿Tengo acceso para siempre? <i class="fas fa-chevron-down text-primary icon-chevron transition-transform duration-300"></i>
-                    </summary>
-                    <p class="px-6 pb-6 text-slate-500 text-sm italic">Sí. Es un pago único. Podrás consultar el material todas las veces que necesites, hoy y en el futuro.</p>
-                </details>
+    <footer class="py-24 bg-slate-50 px-6 border-t border-slate-100">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <div>
+                <h3 class="serif text-3xl italic font-black text-slate-900 mb-2">Nutri-Safe System</h3>
+                <p class="text-[10px] font-black text-slate-300 uppercase tracking-[0.5em]">&copy; 2026 Todos los derechos reservados.</p>
             </div>
-        </div>
-    </section>
-
-    <footer class="py-16 bg-slate-900 text-white px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
-            <div class="text-center md:text-left">
-                <h3 class="serif text-3xl text-primary italic mb-4">Nutri-Safe System</h3>
-                <p class="text-white/30 text-[9px] uppercase font-black tracking-widest">&copy; 2026 Todos los derechos reservados.</p>
-            </div>
-            <div class="max-w-sm text-center md:text-right">
-                <p class="text-white/20 text-[8px] leading-relaxed italic mb-4">
-                    Este sitio no forma parte de Meta Platforms, Inc. o Facebook. Los resultados individuales pueden variar. Consulte siempre a su pediatra antes de cambiar la dieta de su bebé.
+            <div class="text-center md:text-right max-w-sm">
+                <p class="text-slate-400 text-[10px] leading-relaxed italic mb-6">
+                    AVISO: Este sitio no es parte de Meta o Facebook. Este producto es una guía educativa. Siempre consulte a su pediatra.
                 </p>
-                <div class="flex justify-center md:justify-end gap-6 text-[9px] font-black text-white/40 uppercase">
+                <div class="flex justify-center md:justify-end gap-8 text-[10px] font-black text-slate-900 uppercase tracking-widest">
                     <a href="#" class="hover:text-primary transition-colors">Términos</a>
                     <a href="#" class="hover:text-primary transition-colors">Privacidad</a>
                 </div>
@@ -313,7 +395,7 @@
 
     <script>
         // --- TIMER ---
-        let time = 7200; // 2 horas
+        let time = 14400; // 4 horas
         const timerEl = document.getElementById('timer');
         setInterval(() => {
             const h = Math.floor(time / 3600);
@@ -323,12 +405,16 @@
             time--;
         }, 1000);
 
-        // --- REVEAL ---
+        // --- REVEAL ENGINE ---
+        const observerOptions = { threshold: 0.15 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
             });
-        }, { threshold: 0.1 });
+        }, observerOptions);
+
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 

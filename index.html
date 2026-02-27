@@ -4,235 +4,280 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>+180 Recetas Saludables para Bebés | Alimentar es Amar</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+:root{
+--terracota:#c65d3b;
+--terracota-dark:#a84a2d;
+--crema:#f8f4f1;
+--dorado:#c6a75e;
+--oscuro:#2b2b2b;
+}
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-background:#fffaf7;
-color:#333;
-line-height:1.6;
-}
-
-section{
-padding:80px 10%;
-}
-
-h1,h2,h3{
-margin-bottom:20px;
-}
-
-p{
-margin-bottom:15px;
+background:var(--crema);
+color:var(--oscuro);
+line-height:1.7;
 }
 
 /* HERO */
 
 .hero{
-background:linear-gradient(135deg,#ffb6a3,#ffe1d6);
+position:relative;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
 text-align:center;
-padding:120px 10%;
+color:white;
+background:url('https://images.unsplash.com/photo-1543353071-873f17a7a088') center/cover no-repeat;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(180deg,rgba(0,0,0,0.65),rgba(0,0,0,0.55));
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:900px;
+padding:20px;
 }
 
 .hero h1{
-font-size:48px;
-font-weight:700;
+font-size:56px;
+font-weight:800;
+margin-bottom:20px;
 }
 
 .hero p{
-font-size:20px;
-max-width:700px;
-margin:20px auto;
+font-size:22px;
+margin-bottom:40px;
+opacity:0.95;
 }
 
-.cta-btn{
+.cta{
 display:inline-block;
-padding:18px 40px;
-background:#ff6f61;
+padding:18px 45px;
+background:var(--terracota);
 color:white;
-font-weight:600;
-border-radius:40px;
+border-radius:50px;
 text-decoration:none;
-transition:0.3s;
+font-weight:600;
+transition:0.4s;
+box-shadow:0 15px 35px rgba(0,0,0,0.25);
 }
 
-.cta-btn:hover{
-background:#e85b4f;
-transform:scale(1.05);
+.cta:hover{
+background:var(--terracota-dark);
+transform:translateY(-5px);
+box-shadow:0 20px 45px rgba(0,0,0,0.35);
 }
 
-/* BLOQUE IMPACTO NUMEROS */
+/* SECCION MANIFIESTO */
 
-.numbers{
-background:#fff;
+.manifiesto{
+padding:100px 10%;
+text-align:center;
+background:white;
+}
+
+.manifiesto h2{
+font-size:38px;
+margin-bottom:30px;
+}
+
+.manifiesto p{
+max-width:800px;
+margin:0 auto 20px auto;
+font-size:18px;
+}
+
+/* NUMEROS IMPACTO */
+
+.numeros{
+background:var(--terracota);
+color:white;
+padding:100px 10%;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:40px;
 text-align:center;
 }
 
-.number-box{
-padding:30px;
-background:#fff3ec;
-border-radius:20px;
+.numero h3{
+font-size:52px;
+font-weight:800;
+color:var(--dorado);
 }
 
-.number-box h2{
-font-size:42px;
-color:#ff6f61;
+.numero p{
+font-size:18px;
 }
 
-.number-box p{
-font-weight:500;
+/* GALERIA PREMIUM */
+
+.galeria{
+padding:100px 10%;
+background:var(--crema);
 }
 
-/* TRANSFORMACION */
+.galeria h2{
+text-align:center;
+margin-bottom:60px;
+font-size:36px;
+}
 
-.transform{
-background:#ffece5;
+.grid{
 display:grid;
-grid-template-columns:1fr 1fr;
-gap:50px;
-align-items:center;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
 }
 
-.transform-box{
-background:white;
-padding:40px;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.05);
+.card{
+position:relative;
+overflow:hidden;
+border-radius:25px;
+box-shadow:0 20px 50px rgba(0,0,0,0.15);
 }
 
-.transform-box h3{
-color:#ff6f61;
-margin-bottom:15px;
-}
-
-/* GALERIA */
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.gallery img{
+.card img{
 width:100%;
-border-radius:20px;
+height:100%;
+object-fit:cover;
+transition:0.5s;
+}
+
+.card:hover img{
+transform:scale(1.1);
+}
+
+.overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(180deg,rgba(0,0,0,0.2),rgba(0,0,0,0.7));
+display:flex;
+align-items:flex-end;
+padding:25px;
+color:white;
+opacity:0;
 transition:0.4s;
 }
 
-.gallery img:hover{
-transform:scale(1.05);
+.card:hover .overlay{
+opacity:1;
 }
 
 /* BENEFICIOS */
 
-.benefits{
-background:#fff;
+.beneficios{
+background:white;
+padding:100px 10%;
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:40px;
 }
 
-.benefit{
-padding:30px;
-background:#fff3ec;
+.beneficio{
+padding:40px;
 border-radius:20px;
-transition:0.3s;
+background:var(--crema);
+transition:0.4s;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
 }
 
-.benefit:hover{
-background:#ffe1d6;
-transform:translateY(-5px);
+.beneficio:hover{
+transform:translateY(-10px);
+box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+
+.beneficio h3{
+margin-bottom:15px;
+color:var(--terracota);
 }
 
 /* TESTIMONIOS */
 
-.testimonials{
-background:#ffece5;
+.testimonios{
+background:linear-gradient(135deg,var(--terracota),var(--terracota-dark));
+color:white;
+padding:100px 10%;
+text-align:center;
 }
 
-.testimonial{
-background:white;
-padding:30px;
-border-radius:20px;
-margin-bottom:25px;
-box-shadow:0 10px 25px rgba(0,0,0,0.05);
+.testimonio{
+max-width:800px;
+margin:40px auto;
+font-size:20px;
+font-style:italic;
 }
 
 /* PRECIO */
 
-.price{
-background:#ff6f61;
-color:white;
+.precio{
+background:white;
+padding:120px 10%;
 text-align:center;
 }
 
-.price h2{
-font-size:40px;
-}
-
-.price-box{
-background:white;
-color:#333;
-padding:40px;
-border-radius:20px;
+.precio-box{
 display:inline-block;
-margin-top:30px;
+padding:60px;
+border-radius:30px;
+background:var(--crema);
+box-shadow:0 25px 60px rgba(0,0,0,0.15);
 }
 
-.price-box h3{
-font-size:38px;
-color:#ff6f61;
-}
-
-.price-box ul{
-list-style:none;
-margin:20px 0;
-}
-
-.price-box li{
-margin-bottom:10px;
-}
-
-/* FAQ */
-
-.faq{
-background:#fff;
-}
-
-.faq-item{
+.precio-box h2{
+font-size:46px;
+color:var(--terracota);
 margin-bottom:20px;
-padding:20px;
-background:#fff3ec;
-border-radius:15px;
+}
+
+.precio-box ul{
+list-style:none;
+margin:30px 0;
+}
+
+.precio-box li{
+margin-bottom:12px;
+font-size:18px;
+}
+
+.precio .cta{
+margin-top:20px;
 }
 
 /* FOOTER */
 
 footer{
-background:#333;
+background:var(--oscuro);
 color:white;
+padding:50px 10%;
 text-align:center;
-padding:40px 10%;
 }
 
 @media(max-width:768px){
 
 .hero h1{
-font-size:34px;
+font-size:36px;
 }
 
-.transform{
-grid-template-columns:1fr;
+.hero p{
+font-size:18px;
 }
 
 }
@@ -243,129 +288,98 @@ grid-template-columns:1fr;
 <body>
 
 <section class="hero">
-<h1>Alimentar a tu bebé no debería ser una lucha diaria.</h1>
-<p>Descubre más de 180 recetas saludables, fáciles y organizadas por etapa para transformar el momento de la comida en amor, tranquilidad y seguridad.</p>
-<a href="#" class="cta-btn">QUIERO LAS 180 RECETAS AHORA</a>
+<div class="hero-content">
+<h1>Alimentar a tu bebé puede ser el momento más hermoso del día.</h1>
+<p>Más de 180 recetas saludables, organizadas por etapa, pensadas para mamás reales que quieren seguridad, variedad y tranquilidad.</p>
+<a href="#" class="cta">QUIERO ACCESO AHORA</a>
+</div>
 </section>
 
-<section class="numbers">
-<div class="number-box">
-<h2>+180</h2>
-<p>Recetas completas y organizadas</p>
+<section class="manifiesto">
+<h2>No es solo comida. Es conexión.</h2>
+<p>Cada receta fue pensada para acompañar el desarrollo de tu bebé con ingredientes reales, combinaciones equilibradas y variedad suficiente para que nunca te quedes sin ideas.</p>
+<p>Porque alimentar también es cuidar, enseñar y amar.</p>
+</section>
+
+<section class="numeros">
+<div class="numero">
+<h3>+180</h3>
+<p>Recetas organizadas por edad</p>
 </div>
-<div class="number-box">
-<h2>0%</h2>
+<div class="numero">
+<h3>100%</h3>
+<p>Ingredientes reales</p>
+</div>
+<div class="numero">
+<h3>0%</h3>
 <p>Ultraprocesados innecesarios</p>
 </div>
-<div class="number-box">
-<h2>100%</h2>
-<p>Ingredientes reales y accesibles</p>
-</div>
-<div class="number-box">
-<h2>9.99</h2>
-<p>USD único pago</p>
+<div class="numero">
+<h3>$9.99</h3>
+<p>Pago único</p>
 </div>
 </section>
 
-<section class="transform">
-<div class="transform-box">
-<h3>ANTES</h3>
-<p>No sabes qué cocinar.</p>
-<p>Miedo a que no coma suficiente.</p>
-<p>Dudas constantes sobre nutrición.</p>
-<p>Estrés en cada comida.</p>
-</div>
-<div class="transform-box">
-<h3>DESPUÉS</h3>
-<p>Plan claro por etapas.</p>
-<p>Recetas probadas y equilibradas.</p>
-<p>Más tranquilidad y confianza.</p>
-<p>Momentos de conexión con tu bebé.</p>
-</div>
-</section>
-
-<section>
-<h2 style="text-align:center;margin-bottom:40px;">Mira lo que encontrarás dentro</h2>
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1604908554007-5f9e23d9d1ef">
-<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c">
+<section class="galeria">
+<h2>Un vistazo a lo que encontrarás</h2>
+<div class="grid">
+<div class="card">
 <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd">
+<div class="overlay">Papillas nutritivas</div>
+</div>
+<div class="card">
 <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061">
+<div class="overlay">Platos balanceados</div>
+</div>
+<div class="card">
 <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
-<img src="https://images.unsplash.com/photo-1478147427282-58a87a120781">
+<div class="overlay">Opciones variadas</div>
+</div>
 </div>
 </section>
 
-<section class="benefits">
-<div class="benefit">
-<h3>Organizado por edades</h3>
-<p>Recetas clasificadas según la etapa de desarrollo de tu bebé.</p>
+<section class="beneficios">
+<div class="beneficio">
+<h3>Organización por etapas</h3>
+<p>Sabes exactamente qué ofrecer según la edad.</p>
 </div>
-<div class="benefit">
-<h3>Fáciles y rápidas</h3>
-<p>Opciones pensadas para mamás reales con poco tiempo.</p>
+<div class="beneficio">
+<h3>Fácil y práctico</h3>
+<p>Recetas simples para tu día a día.</p>
 </div>
-<div class="benefit">
-<h3>Nutrición consciente</h3>
-<p>Combinaciones equilibradas y variadas.</p>
+<div class="beneficio">
+<h3>Variedad real</h3>
+<p>No repetirás lo mismo cada semana.</p>
 </div>
-<div class="benefit">
-<h3>Guía práctica</h3>
-<p>No es solo un PDF. Es un sistema estructurado.</p>
-</div>
-</section>
-
-<section class="testimonials">
-<h2 style="text-align:center;margin-bottom:40px;">Lo que dicen otras mamás</h2>
-<div class="testimonial">
-<p>"Por fin tengo ideas claras cada semana. Mi bebé come mejor y yo estoy más tranquila."</p>
-</div>
-<div class="testimonial">
-<p>"Las recetas son simples pero nutritivas. Me salvó del estrés diario."</p>
-</div>
-<div class="testimonial">
-<p>"Vale mucho más de lo que cuesta."</p>
+<div class="beneficio">
+<h3>Sistema estructurado</h3>
+<p>No es un PDF suelto, es una guía organizada.</p>
 </div>
 </section>
 
-<section class="price">
-<h2>Todo esto por solo</h2>
-<div class="price-box">
-<h3>$9.99 USD</h3>
+<section class="testimonios">
+<h2>Lo que dicen otras mamás</h2>
+<div class="testimonio">"Ahora tengo tranquilidad en cada comida. Vale muchísimo más de lo que cuesta."</div>
+<div class="testimonio">"Mi bebé come mejor y yo me siento segura."</div>
+</section>
+
+<section class="precio">
+<div class="precio-box">
+<h2>$9.99 USD</h2>
 <ul>
-<li>✔ +180 recetas</li>
-<li>✔ Clasificación por edades</li>
 <li>✔ Acceso inmediato</li>
+<li>✔ Más de 180 recetas</li>
+<li>✔ Organización por edades</li>
 <li>✔ Descarga digital</li>
 <li>✔ Actualizaciones futuras</li>
 </ul>
-<a href="#" class="cta-btn">DESCARGAR AHORA</a>
-</div>
-</section>
-
-<section class="faq">
-<h2 style="text-align:center;margin-bottom:40px;">Preguntas Frecuentes</h2>
-<div class="faq-item">
-<h4>¿Es un libro físico?</h4>
-<p>No, es un producto digital descargable inmediatamente.</p>
-</div>
-<div class="faq-item">
-<h4>¿Las recetas son difíciles?</h4>
-<p>No. Están pensadas para ser prácticas y accesibles.</p>
-</div>
-<div class="faq-item">
-<h4>¿Necesito ingredientes especiales?</h4>
-<p>No. Se priorizan ingredientes comunes y fáciles de conseguir.</p>
-</div>
-<div class="faq-item">
-<h4>¿Es pago único?</h4>
-<p>Sí. Solo 9.99 USD y es tuyo para siempre.</p>
+<a href="#" class="cta">DESCARGAR AHORA</a>
 </div>
 </section>
 
 <footer>
 <p>Alimentar es Amar © 2026</p>
-<p>Transformando la alimentación infantil con amor y conciencia.</p>
+<p>Nutrición consciente con amor y estructura.</p>
 </footer>
 
 </body>

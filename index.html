@@ -12,8 +12,10 @@
 --terracota:#c65d3b;
 --terracota-dark:#a84a2d;
 --crema:#f8f4f1;
+--verde:#2e7d32;
+--verde-light:#43a047;
 --dorado:#c6a75e;
---oscuro:#2b2b2b;
+--oscuro:#1f1f1f;
 }
 
 *{
@@ -21,19 +23,50 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
 }
 
 body{
 background:var(--crema);
 color:var(--oscuro);
 line-height:1.7;
+overflow-x:hidden;
+}
+
+section{
+padding:100px 10%;
+position:relative;
+}
+
+/* BOTONES VERDES CON GLOW */
+
+.cta{
+display:inline-block;
+padding:18px 45px;
+background:var(--verde);
+color:white;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+transition:0.4s;
+box-shadow:0 10px 30px rgba(46,125,50,0.4);
+animation:pulse 2s infinite;
+}
+
+.cta:hover{
+background:var(--verde-light);
+transform:translateY(-5px);
+box-shadow:0 20px 40px rgba(46,125,50,0.6);
+}
+
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(46,125,50,0.5);}
+70%{box-shadow:0 0 0 15px rgba(46,125,50,0);}
+100%{box-shadow:0 0 0 0 rgba(46,125,50,0);}
 }
 
 /* HERO */
 
 .hero{
-position:relative;
 height:100vh;
 display:flex;
 align-items:center;
@@ -47,14 +80,13 @@ background:url('https://images.unsplash.com/photo-1543353071-873f17a7a088') cent
 content:"";
 position:absolute;
 inset:0;
-background:linear-gradient(180deg,rgba(0,0,0,0.65),rgba(0,0,0,0.55));
+background:rgba(0,0,0,0.6);
 }
 
 .hero-content{
 position:relative;
 z-index:2;
 max-width:900px;
-padding:20px;
 }
 
 .hero h1{
@@ -66,52 +98,13 @@ margin-bottom:20px;
 .hero p{
 font-size:22px;
 margin-bottom:40px;
-opacity:0.95;
 }
 
-.cta{
-display:inline-block;
-padding:18px 45px;
-background:var(--terracota);
-color:white;
-border-radius:50px;
-text-decoration:none;
-font-weight:600;
-transition:0.4s;
-box-shadow:0 15px 35px rgba(0,0,0,0.25);
-}
-
-.cta:hover{
-background:var(--terracota-dark);
-transform:translateY(-5px);
-box-shadow:0 20px 45px rgba(0,0,0,0.35);
-}
-
-/* SECCION MANIFIESTO */
-
-.manifiesto{
-padding:100px 10%;
-text-align:center;
-background:white;
-}
-
-.manifiesto h2{
-font-size:38px;
-margin-bottom:30px;
-}
-
-.manifiesto p{
-max-width:800px;
-margin:0 auto 20px auto;
-font-size:18px;
-}
-
-/* NUMEROS IMPACTO */
+/* CONTADOR NUMEROS */
 
 .numeros{
 background:var(--terracota);
 color:white;
-padding:100px 10%;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:40px;
@@ -120,7 +113,6 @@ text-align:center;
 
 .numero h3{
 font-size:52px;
-font-weight:800;
 color:var(--dorado);
 }
 
@@ -128,17 +120,10 @@ color:var(--dorado);
 font-size:18px;
 }
 
-/* GALERIA PREMIUM */
+/* GALERIA */
 
 .galeria{
-padding:100px 10%;
-background:var(--crema);
-}
-
-.galeria h2{
-text-align:center;
-margin-bottom:60px;
-font-size:36px;
+background:white;
 }
 
 .grid{
@@ -158,17 +143,17 @@ box-shadow:0 20px 50px rgba(0,0,0,0.15);
 width:100%;
 height:100%;
 object-fit:cover;
-transition:0.5s;
+transition:0.6s;
 }
 
 .card:hover img{
-transform:scale(1.1);
+transform:scale(1.15);
 }
 
 .overlay{
 position:absolute;
 inset:0;
-background:linear-gradient(180deg,rgba(0,0,0,0.2),rgba(0,0,0,0.7));
+background:linear-gradient(to top,rgba(0,0,0,0.8),transparent);
 display:flex;
 align-items:flex-end;
 padding:25px;
@@ -181,55 +166,33 @@ transition:0.4s;
 opacity:1;
 }
 
-/* BENEFICIOS */
+/* BONOS */
 
-.beneficios{
-background:white;
-padding:100px 10%;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:40px;
-}
-
-.beneficio{
-padding:40px;
-border-radius:20px;
-background:var(--crema);
-transition:0.4s;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
-}
-
-.beneficio:hover{
-transform:translateY(-10px);
-box-shadow:0 20px 40px rgba(0,0,0,0.15);
-}
-
-.beneficio h3{
-margin-bottom:15px;
-color:var(--terracota);
-}
-
-/* TESTIMONIOS */
-
-.testimonios{
+.bonos{
 background:linear-gradient(135deg,var(--terracota),var(--terracota-dark));
 color:white;
-padding:100px 10%;
 text-align:center;
 }
 
-.testimonio{
-max-width:800px;
-margin:40px auto;
+.bono-item{
+margin:30px auto;
+max-width:700px;
 font-size:20px;
-font-style:italic;
+}
+
+/* TEMPORIZADOR */
+
+.countdown{
+font-size:28px;
+margin-top:20px;
+color:var(--verde);
+font-weight:700;
 }
 
 /* PRECIO */
 
 .precio{
 background:white;
-padding:120px 10%;
 text-align:center;
 }
 
@@ -247,39 +210,29 @@ color:var(--terracota);
 margin-bottom:20px;
 }
 
-.precio-box ul{
-list-style:none;
-margin:30px 0;
-}
-
-.precio-box li{
-margin-bottom:12px;
-font-size:18px;
-}
-
-.precio .cta{
-margin-top:20px;
-}
-
-/* FOOTER */
-
 footer{
 background:var(--oscuro);
 color:white;
-padding:50px 10%;
 text-align:center;
+padding:50px 10%;
+}
+
+/* SCROLL REVEAL */
+
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
 }
 
 @media(max-width:768px){
-
-.hero h1{
-font-size:36px;
-}
-
-.hero p{
-font-size:18px;
-}
-
+.hero h1{font-size:34px;}
+.hero p{font-size:18px;}
 }
 
 </style>
@@ -289,30 +242,25 @@ font-size:18px;
 
 <section class="hero">
 <div class="hero-content">
-<h1>Alimentar a tu bebé puede ser el momento más hermoso del día.</h1>
-<p>Más de 180 recetas saludables, organizadas por etapa, pensadas para mamás reales que quieren seguridad, variedad y tranquilidad.</p>
+<h1>Transforma la alimentación de tu bebé desde hoy.</h1>
+<p>Más de 180 recetas organizadas, prácticas y saludables para cada etapa.</p>
 <a href="#" class="cta">QUIERO ACCESO AHORA</a>
+<div class="countdown" id="timer"></div>
 </div>
 </section>
 
-<section class="manifiesto">
-<h2>No es solo comida. Es conexión.</h2>
-<p>Cada receta fue pensada para acompañar el desarrollo de tu bebé con ingredientes reales, combinaciones equilibradas y variedad suficiente para que nunca te quedes sin ideas.</p>
-<p>Porque alimentar también es cuidar, enseñar y amar.</p>
-</section>
-
-<section class="numeros">
+<section class="numeros reveal">
 <div class="numero">
-<h3>+180</h3>
-<p>Recetas organizadas por edad</p>
+<h3 class="counter" data-target="180">0</h3>
+<p>Recetas organizadas</p>
 </div>
 <div class="numero">
-<h3>100%</h3>
-<p>Ingredientes reales</p>
+<h3 class="counter" data-target="100">0</h3>
+<p>% Ingredientes reales</p>
 </div>
 <div class="numero">
-<h3>0%</h3>
-<p>Ultraprocesados innecesarios</p>
+<h3 class="counter" data-target="0">0</h3>
+<p>% Ultraprocesados</p>
 </div>
 <div class="numero">
 <h3>$9.99</h3>
@@ -320,8 +268,8 @@ font-size:18px;
 </div>
 </section>
 
-<section class="galeria">
-<h2>Un vistazo a lo que encontrarás</h2>
+<section class="galeria reveal">
+<h2 style="text-align:center;margin-bottom:60px;">Un vistazo real</h2>
 <div class="grid">
 <div class="card">
 <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd">
@@ -333,54 +281,87 @@ font-size:18px;
 </div>
 <div class="card">
 <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
-<div class="overlay">Opciones variadas</div>
+<div class="overlay">Variedad semanal</div>
 </div>
 </div>
 </section>
 
-<section class="beneficios">
-<div class="beneficio">
-<h3>Organización por etapas</h3>
-<p>Sabes exactamente qué ofrecer según la edad.</p>
-</div>
-<div class="beneficio">
-<h3>Fácil y práctico</h3>
-<p>Recetas simples para tu día a día.</p>
-</div>
-<div class="beneficio">
-<h3>Variedad real</h3>
-<p>No repetirás lo mismo cada semana.</p>
-</div>
-<div class="beneficio">
-<h3>Sistema estructurado</h3>
-<p>No es un PDF suelto, es una guía organizada.</p>
-</div>
+<section class="bonos reveal">
+<h2>Bonos Exclusivos</h2>
+<div class="bono-item">✔ Guía rápida de introducción alimentaria</div>
+<div class="bono-item">✔ Tabla imprimible por edades</div>
+<div class="bono-item">✔ Lista de compras organizada</div>
+<a href="#" class="cta">DESCARGAR TODO AHORA</a>
 </section>
 
-<section class="testimonios">
-<h2>Lo que dicen otras mamás</h2>
-<div class="testimonio">"Ahora tengo tranquilidad en cada comida. Vale muchísimo más de lo que cuesta."</div>
-<div class="testimonio">"Mi bebé come mejor y yo me siento segura."</div>
-</section>
-
-<section class="precio">
+<section class="precio reveal">
 <div class="precio-box">
 <h2>$9.99 USD</h2>
-<ul>
-<li>✔ Acceso inmediato</li>
-<li>✔ Más de 180 recetas</li>
-<li>✔ Organización por edades</li>
-<li>✔ Descarga digital</li>
-<li>✔ Actualizaciones futuras</li>
-</ul>
-<a href="#" class="cta">DESCARGAR AHORA</a>
+<p>Acceso inmediato, descarga digital y actualizaciones futuras.</p>
+<br>
+<a href="#" class="cta">OBTENER AHORA</a>
 </div>
 </section>
 
 <footer>
 <p>Alimentar es Amar © 2026</p>
-<p>Nutrición consciente con amor y estructura.</p>
 </footer>
+
+<script>
+
+/* CONTADOR ANIMADO */
+
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter=>{
+counter.innerText='0';
+const updateCounter=()=>{
+const target=+counter.getAttribute('data-target');
+const c=+counter.innerText;
+const increment=target/100;
+if(c<target){
+counter.innerText=`${Math.ceil(c+increment)}`;
+setTimeout(updateCounter,20);
+}else{
+counter.innerText=target;
+}
+};
+updateCounter();
+});
+
+/* SCROLL REVEAL */
+
+window.addEventListener('scroll',()=>{
+document.querySelectorAll('.reveal').forEach(el=>{
+const windowHeight=window.innerHeight;
+const elementTop=el.getBoundingClientRect().top;
+if(elementTop<windowHeight-100){
+el.classList.add('active');
+}
+});
+});
+
+/* TEMPORIZADOR 24 HORAS */
+
+function startTimer(duration,display){
+let timer=duration,hours,minutes,seconds;
+setInterval(function(){
+hours=parseInt(timer/3600,10);
+minutes=parseInt((timer%3600)/60,10);
+seconds=parseInt(timer%60,10);
+hours=hours<10?"0"+hours:hours;
+minutes=minutes<10?"0"+minutes:minutes;
+seconds=seconds<10?"0"+seconds:seconds;
+display.textContent="Oferta termina en "+hours+":"+minutes+":"+seconds;
+if(--timer<0){timer=0;}
+},1000);
+}
+window.onload=function(){
+const twentyFourHours=24*60*60;
+const display=document.querySelector('#timer');
+startTimer(twentyFourHours,display);
+};
+
+</script>
 
 </body>
 </html>

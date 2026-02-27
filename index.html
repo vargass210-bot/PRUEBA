@@ -1,91 +1,240 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>+180 RECETAS PARA BEBÉS | VARIEDAD REAL SIN ESTRÉS</title>
-
-<!-- META PIXEL -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
-fbq('init', '2012635556262710');
-fbq('track', 'PageView');
-
-function trackCheckout() {
-  fbq('track', 'InitiateCheckout');
-}
-</script>
-
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Playfair+Display:ital,wght@0,700;1,900&display=swap" rel="stylesheet">
+<title>+180 Recetas Saludables para Bebés | Alimentar es Amar</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
---primary:#ff5f40;
---dark:#0a0f1c;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-font-family:'Outfit',sans-serif;
-background:#ffffff;
-color:#0f172a;
+background:#fffaf7;
+color:#333;
+line-height:1.6;
 }
 
-.serif{
-font-family:'Playfair Display',serif;
+section{
+padding:80px 10%;
 }
 
-.btn-main{
-background:linear-gradient(135deg,#ff5f40,#e64a2e);
-box-shadow:0 20px 40px rgba(255,95,64,.4);
-transition:.35s ease;
+h1,h2,h3{
+margin-bottom:20px;
 }
 
-.btn-main:hover{
-transform:translateY(-4px) scale(1.04);
-box-shadow:0 35px 70px rgba(255,95,64,.6);
+p{
+margin-bottom:15px;
 }
 
-.card-hover{
-transition:.4s cubic-bezier(.175,.885,.32,1.275);
-position:relative;
-overflow:hidden;
-}
+/* HERO */
 
-.card-hover:hover{
-transform:translateY(-10px);
-box-shadow:0 30px 70px rgba(0,0,0,.15);
-}
-
-.overlay{
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.65);
-color:#fff;
-opacity:0;
-display:flex;
-align-items:center;
-justify-content:center;
+.hero{
+background:linear-gradient(135deg,#ffb6a3,#ffe1d6);
 text-align:center;
+padding:120px 10%;
+}
+
+.hero h1{
+font-size:48px;
+font-weight:700;
+}
+
+.hero p{
+font-size:20px;
+max-width:700px;
+margin:20px auto;
+}
+
+.cta-btn{
+display:inline-block;
+padding:18px 40px;
+background:#ff6f61;
+color:white;
+font-weight:600;
+border-radius:40px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.cta-btn:hover{
+background:#e85b4f;
+transform:scale(1.05);
+}
+
+/* BLOQUE IMPACTO NUMEROS */
+
+.numbers{
+background:#fff;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:40px;
+text-align:center;
+}
+
+.number-box{
+padding:30px;
+background:#fff3ec;
+border-radius:20px;
+}
+
+.number-box h2{
+font-size:42px;
+color:#ff6f61;
+}
+
+.number-box p{
+font-weight:500;
+}
+
+/* TRANSFORMACION */
+
+.transform{
+background:#ffece5;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
+
+.transform-box{
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
+}
+
+.transform-box h3{
+color:#ff6f61;
+margin-bottom:15px;
+}
+
+/* GALERIA */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+border-radius:20px;
+transition:0.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* BENEFICIOS */
+
+.benefits{
+background:#fff;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.benefit{
+padding:30px;
+background:#fff3ec;
+border-radius:20px;
+transition:0.3s;
+}
+
+.benefit:hover{
+background:#ffe1d6;
+transform:translateY(-5px);
+}
+
+/* TESTIMONIOS */
+
+.testimonials{
+background:#ffece5;
+}
+
+.testimonial{
+background:white;
+padding:30px;
+border-radius:20px;
+margin-bottom:25px;
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* PRECIO */
+
+.price{
+background:#ff6f61;
+color:white;
+text-align:center;
+}
+
+.price h2{
+font-size:40px;
+}
+
+.price-box{
+background:white;
+color:#333;
+padding:40px;
+border-radius:20px;
+display:inline-block;
+margin-top:30px;
+}
+
+.price-box h3{
+font-size:38px;
+color:#ff6f61;
+}
+
+.price-box ul{
+list-style:none;
+margin:20px 0;
+}
+
+.price-box li{
+margin-bottom:10px;
+}
+
+/* FAQ */
+
+.faq{
+background:#fff;
+}
+
+.faq-item{
+margin-bottom:20px;
 padding:20px;
-transition:.4s;
+background:#fff3ec;
+border-radius:15px;
 }
 
-.card-hover:hover .overlay{
-opacity:1;
+/* FOOTER */
+
+footer{
+background:#333;
+color:white;
+text-align:center;
+padding:40px 10%;
 }
 
-.sticky-cta{
-position:fixed;
-bottom:0;
-left:0;
-right:0;
-z-index:9999;
+@media(max-width:768px){
+
+.hero h1{
+font-size:34px;
+}
+
+.transform{
+grid-template-columns:1fr;
+}
+
 }
 
 </style>
@@ -93,185 +242,130 @@ z-index:9999;
 
 <body>
 
-<!-- HERO SECTION -->
+<section class="hero">
+<h1>Alimentar a tu bebé no debería ser una lucha diaria.</h1>
+<p>Descubre más de 180 recetas saludables, fáciles y organizadas por etapa para transformar el momento de la comida en amor, tranquilidad y seguridad.</p>
+<a href="#" class="cta-btn">QUIERO LAS 180 RECETAS AHORA</a>
+</section>
 
-<section class="pt-20 pb-28 px-6">
-<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-
-<div>
-<p class="text-xs uppercase tracking-[0.3em] font-black text-slate-500 mb-6">
-Guía Completa 2026
-</p>
-
-<h1 class="serif text-5xl md:text-7xl leading-[1.05] mb-8">
-Más de <span class="text-[var(--primary)] italic">180 recetas</span> para que nunca vuelvas a quedarte sin ideas
-</h1>
-
-<p class="text-xl text-slate-600 mb-10 max-w-xl">
-Organizadas por edad, fáciles de preparar y pensadas para que tu bebé disfrute cada comida mientras tú ganas tranquilidad.
-</p>
-
-<a href="#oferta" onclick="trackCheckout()" class="btn-main text-white px-12 py-6 rounded-3xl text-xl font-black inline-block">
-QUIERO ACCESO INMEDIATO
-</a>
+<section class="numbers">
+<div class="number-box">
+<h2>+180</h2>
+<p>Recetas completas y organizadas</p>
 </div>
-
-<div>
-<img src="https://img.freepik.com/foto-gratis/vista-frontal-hermoso-bebe-comiendo-sandia_23-2148651260.jpg?semt=ais_hybrid&w=740&q=80"
-class="rounded-[3rem] shadow-2xl w-full object-cover h-[550px]">
+<div class="number-box">
+<h2>0%</h2>
+<p>Ultraprocesados innecesarios</p>
 </div>
-
+<div class="number-box">
+<h2>100%</h2>
+<p>Ingredientes reales y accesibles</p>
+</div>
+<div class="number-box">
+<h2>9.99</h2>
+<p>USD único pago</p>
 </div>
 </section>
 
-<!-- PROBLEMA -->
-
-<section class="py-24 bg-slate-50 px-6">
-<div class="max-w-4xl mx-auto text-center">
-
-<h2 class="serif text-4xl italic mb-10">
-Ser mamá no debería significar improvisar cada comida
-</h2>
-
-<div class="space-y-6 text-lg text-slate-600">
-<p>✔ No sabes qué cocinar hoy.</p>
-<p>✔ Repites las mismas recetas.</p>
-<p>✔ Te preocupa si está recibiendo nutrientes suficientes.</p>
-<p>✔ Te falta tiempo para planificar.</p>
+<section class="transform">
+<div class="transform-box">
+<h3>ANTES</h3>
+<p>No sabes qué cocinar.</p>
+<p>Miedo a que no coma suficiente.</p>
+<p>Dudas constantes sobre nutrición.</p>
+<p>Estrés en cada comida.</p>
 </div>
-
-<div class="mt-12">
-<a href="#oferta" class="btn-main text-white px-10 py-5 rounded-3xl font-black">
-QUIERO ORGANIZARME MEJOR
-</a>
-</div>
-
+<div class="transform-box">
+<h3>DESPUÉS</h3>
+<p>Plan claro por etapas.</p>
+<p>Recetas probadas y equilibradas.</p>
+<p>Más tranquilidad y confianza.</p>
+<p>Momentos de conexión con tu bebé.</p>
 </div>
 </section>
 
-<!-- GALERIA VISUAL RECETAS -->
-
-<section class="py-28 px-6">
-<div class="max-w-7xl mx-auto">
-
-<h2 class="serif text-5xl text-center italic mb-16">
-Algunas de las recetas que encontrarás
-</h2>
-
-<div class="grid md:grid-cols-3 gap-10">
-
-<div class="card-hover rounded-3xl shadow-xl">
-<img src="https://images.unsplash.com/photo-1543352634-8730b72a5f6c?auto=format&fit=crop&w=800&q=80"
-class="w-full h-80 object-cover">
-<div class="overlay">
-<p class="font-bold text-lg">Pancakes de avena y banana</p>
-</div>
-</div>
-
-<div class="card-hover rounded-3xl shadow-xl">
-<img src="https://images.unsplash.com/photo-1514516870926-2059899bdfd3?auto=format&fit=crop&w=800&q=80"
-class="w-full h-80 object-cover">
-<div class="overlay">
-<p class="font-bold text-lg">Croquetas suaves de verduras</p>
-</div>
-</div>
-
-<div class="card-hover rounded-3xl shadow-xl">
-<img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80"
-class="w-full h-80 object-cover">
-<div class="overlay">
-<p class="font-bold text-lg">Bowl nutritivo para 1 año+</p>
-</div>
-</div>
-
-</div>
-
+<section>
+<h2 style="text-align:center;margin-bottom:40px;">Mira lo que encontrarás dentro</h2>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1604908554007-5f9e23d9d1ef">
+<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c">
+<img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd">
+<img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061">
+<img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836">
+<img src="https://images.unsplash.com/photo-1478147427282-58a87a120781">
 </div>
 </section>
 
-<!-- QUE INCLUYE -->
-
-<section class="py-28 bg-slate-900 text-white px-6">
-<div class="max-w-6xl mx-auto">
-
-<h2 class="serif text-5xl text-center italic mb-16">
-Todo lo que incluye tu acceso
-</h2>
-
-<div class="grid md:grid-cols-2 gap-12">
-
-<div class="card-hover bg-white/5 p-10 rounded-3xl">
-<h3 class="font-black text-2xl mb-4">+180 Recetas Organizadas</h3>
-<p class="text-white/80">Separadas por etapa de crecimiento para que siempre sepas qué preparar.</p>
+<section class="benefits">
+<div class="benefit">
+<h3>Organizado por edades</h3>
+<p>Recetas clasificadas según la etapa de desarrollo de tu bebé.</p>
 </div>
-
-<div class="card-hover bg-white/5 p-10 rounded-3xl">
-<h3 class="font-black text-2xl mb-4">Menús Semanales</h3>
-<p class="text-white/80">Planificaciones listas para usar y ahorrar tiempo.</p>
+<div class="benefit">
+<h3>Fáciles y rápidas</h3>
+<p>Opciones pensadas para mamás reales con poco tiempo.</p>
 </div>
-
-<div class="card-hover bg-white/5 p-10 rounded-3xl">
-<h3 class="font-black text-2xl mb-4">Guía de Nutrientes</h3>
-<p class="text-white/80">Aprende qué aporta cada alimento al desarrollo de tu bebé.</p>
+<div class="benefit">
+<h3>Nutrición consciente</h3>
+<p>Combinaciones equilibradas y variadas.</p>
 </div>
-
-<div class="card-hover bg-white/5 p-10 rounded-3xl">
-<h3 class="font-black text-2xl mb-4">Acceso de Por Vida</h3>
-<p class="text-white/80">Disponible siempre que lo necesites.</p>
-</div>
-
-</div>
-
-<div class="text-center mt-16">
-<a href="#oferta" class="btn-main text-white px-16 py-6 rounded-3xl text-2xl font-black">
-QUIERO TODO EL CONTENIDO
-</a>
-</div>
-
+<div class="benefit">
+<h3>Guía práctica</h3>
+<p>No es solo un PDF. Es un sistema estructurado.</p>
 </div>
 </section>
 
-<!-- OFERTA FINAL -->
-
-<section id="oferta" class="py-32 px-6 bg-white">
-<div class="max-w-5xl mx-auto text-center">
-
-<h2 class="serif text-6xl italic mb-10">
-Acceso Completo Hoy
-</h2>
-
-<p class="line-through text-slate-400 text-2xl mb-4">$197 USD</p>
-
-<div class="text-[120px] font-black text-[var(--primary)] leading-none mb-10">
-9<span class="text-5xl align-top">.99</span>
+<section class="testimonials">
+<h2 style="text-align:center;margin-bottom:40px;">Lo que dicen otras mamás</h2>
+<div class="testimonial">
+<p>"Por fin tengo ideas claras cada semana. Mi bebé come mejor y yo estoy más tranquila."</p>
 </div>
-
-<a href="https://go.hotmart.com/H104335447R?ap=ff26"
-onclick="trackCheckout()"
-class="btn-main text-white px-20 py-8 rounded-[3rem] text-3xl font-black uppercase">
-ACCESO VIP AHORA
-</a>
-
-<p class="mt-6 text-sm text-slate-500">
-Pago único · Acceso inmediato · Garantía 7 días
-</p>
-
+<div class="testimonial">
+<p>"Las recetas son simples pero nutritivas. Me salvó del estrés diario."</p>
+</div>
+<div class="testimonial">
+<p>"Vale mucho más de lo que cuesta."</p>
 </div>
 </section>
 
-<!-- STICKY CTA MOBILE -->
-
-<div class="sticky-cta md:hidden">
-<a href="#oferta" class="btn-main text-white block text-center py-5 font-black">
-QUIERO MIS 180 RECETAS
-</a>
+<section class="price">
+<h2>Todo esto por solo</h2>
+<div class="price-box">
+<h3>$9.99 USD</h3>
+<ul>
+<li>✔ +180 recetas</li>
+<li>✔ Clasificación por edades</li>
+<li>✔ Acceso inmediato</li>
+<li>✔ Descarga digital</li>
+<li>✔ Actualizaciones futuras</li>
+</ul>
+<a href="#" class="cta-btn">DESCARGAR AHORA</a>
 </div>
+</section>
 
-<footer class="py-20 bg-slate-900 text-white text-center">
-<p class="serif text-3xl italic mb-4">Recetario Nutricional 2026</p>
-<p class="text-xs uppercase tracking-widest opacity-60">
-© 2026 Alimentación Infantil Saludable
-</p>
+<section class="faq">
+<h2 style="text-align:center;margin-bottom:40px;">Preguntas Frecuentes</h2>
+<div class="faq-item">
+<h4>¿Es un libro físico?</h4>
+<p>No, es un producto digital descargable inmediatamente.</p>
+</div>
+<div class="faq-item">
+<h4>¿Las recetas son difíciles?</h4>
+<p>No. Están pensadas para ser prácticas y accesibles.</p>
+</div>
+<div class="faq-item">
+<h4>¿Necesito ingredientes especiales?</h4>
+<p>No. Se priorizan ingredientes comunes y fáciles de conseguir.</p>
+</div>
+<div class="faq-item">
+<h4>¿Es pago único?</h4>
+<p>Sí. Solo 9.99 USD y es tuyo para siempre.</p>
+</div>
+</section>
+
+<footer>
+<p>Alimentar es Amar © 2026</p>
+<p>Transformando la alimentación infantil con amor y conciencia.</p>
 </footer>
 
 </body>

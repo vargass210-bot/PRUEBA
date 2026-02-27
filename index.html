@@ -3,256 +3,292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alimentación Segura | Método BLW & Recetario Completo</title>
-    <meta name="description" content="Aprende cortes seguros y recetas nutritivas para tu bebé. Transforma el miedo en seguridad con nuestro sistema completo de alimentación.">
-
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+    <title>SISTEMA BLW SEGURO | EL ESTÁNDAR DORADO 2026</title>
     
-    // Solución al error de diagnóstico de Meta
-    fbq('init', '2012635556262710', {
-        em: '', 
+    <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      
+      // Inicialización con parche para diagnóstico de Meta
+      fbq('init', '2012635556262710', {
+        em: '',
         ph: ''
-    });
-    fbq('track', 'PageView');
+      }); 
+      fbq('track', 'PageView');
+
+      function trackCheckout() {
+        fbq('track', 'InitiateCheckout');
+      }
     </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2012635556262710&ev=PageView&noscript=1"/></noscript>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        body { font-family: 'Quicksand', sans-serif; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
-        .bg-baby-warm { background-color: #FFF9F5; }
-        .text-coral { color: #FF7F67; }
-        .bg-coral { background-color: #FF7F67; }
+        :root {
+            --primary: #ff5f40;
+            --primary-dark: #e64a2e;
+            --secondary: #0a0f1c;
+            --accent: #ffd1c7;
+            --bg-light: #fffaf8;
+        }
 
-        /* EFECTOS VISUALES */
-        .hover-interactive {
+        body { 
+            font-family: 'Outfit', sans-serif; 
+            background-color: #ffffff; 
+            color: #1e293b;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .serif { font-family: 'Playfair Display', serif; }
+
+        /* REVELACIÓN */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* BOTÓN ELITE */
+        .btn-elite {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            position: relative;
+            z-index: 1;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 20px 40px rgba(255, 95, 64, 0.4);
         }
-        .hover-interactive:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(255, 127, 103, 0.15);
-        }
-
-        .btn-glow { 
-            background: linear-gradient(135deg, #FF7F67 0%, #FF4F37 100%); 
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 127, 103, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255, 127, 103, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 127, 103, 0); }
+        .btn-elite:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(255, 95, 64, 0.6);
         }
 
-        /* CORRECCIÓN DE TRASLUCIDEZ */
-        .no-traslucido { opacity: 1 !important; color: #1a1a1a !important; font-weight: 700; }
-        .badge-visible { background-color: #facc15 !important; opacity: 1 !important; color: #000 !important; }
+        /* PRECIO TITÁNICO - CORRECCIÓN DE VISIBILIDAD */
+        .price-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 0.85;
+            opacity: 1 !important; /* Asegurar visibilidad */
+        }
+        .price-symbol { font-size: 0.4em; margin-top: 0.2em; margin-right: 0.1em; color: #0a0f1c; opacity: 1; }
+        .price-main { font-size: 1.2em; letter-spacing: -0.05em; opacity: 1; }
+        .price-decimal { font-size: 0.4em; margin-top: 0.2em; color: #0a0f1c; opacity: 1; }
+
+        /* TESTIMONIOS - CORRECCIÓN DE TRASLUCIDEZ */
+        .t-card {
+            width: 360px;
+            margin: 0 1rem;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 2.5rem;
+            border: 2px solid #f1f5f9;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            flex-shrink: 0;
+            opacity: 1 !important; /* Texto sólido */
+        }
+        .t-card p { color: #1e293b !important; opacity: 1 !important; font-weight: 500; }
+
+        @keyframes scrollInfinite {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-360px * 5)); }
+        }
+        .testimonial-stream {
+            display: flex;
+            width: max-content;
+            animation: scrollInfinite 45s linear infinite;
+        }
+
+        .blob-bg {
+            position: absolute;
+            z-index: -1;
+            filter: blur(100px);
+            opacity: 0.5;
+            border-radius: 50%;
+        }
     </style>
 </head>
-<body class="bg-baby-warm text-gray-800 antialiased">
+<body>
 
-    <div class="bg-black text-white text-center py-2 text-[11px] font-bold uppercase tracking-widest px-4 sticky top-0 z-50">
-        ⚠️ ATENCIÓN: Solo quedan <span class="text-yellow-400" id="slots">14</span> cupos con el 85% de descuento.
+    <div class="bg-black text-white py-3 px-6 sticky top-0 z-[2000] border-b border-white/10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-3">
+                <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                </span>
+                <p class="text-[10px] font-black uppercase tracking-[0.2em]">Acceso con 95% de descuento activo</p>
+            </div>
+            <div class="text-[10px] font-black uppercase tracking-[0.2em]">
+                Oferta expira en: <span id="timer" class="text-primary ml-1">00:00:00</span>
+            </div>
+        </div>
     </div>
 
-    <header class="py-12 md:py-20 px-6 bg-white rounded-b-[4rem] shadow-md">
-        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-                <div class="flex items-center gap-2 mb-4">
-                    <span class="bg-coral/10 text-coral px-3 py-1 rounded-full text-xs font-bold uppercase">Aprobado por Mamás Reales</span>
+    <section class="relative pt-12 md:pt-28 pb-20 md:pb-40 px-6 overflow-hidden bg-white">
+        <div class="blob-bg bg-orange-100 w-[600px] h-[600px] -top-40 -right-40"></div>
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+            <div class="reveal active">
+                <div class="inline-flex items-center gap-3 bg-slate-900 text-white px-5 py-2.5 rounded-full mb-8">
+                    <span class="bg-primary w-2 h-2 rounded-full"></span>
+                    <span class="text-[10px] font-bold uppercase tracking-[0.2em]">Certificado Oficial 2026</span>
                 </div>
-                <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6 text-slate-900">
-                    Descubre la alegría de ver a tu bebé <span class="italic text-coral">comer de todo</span> con total seguridad.
+                <h1 class="serif text-5xl md:text-[5.5rem] leading-[0.9] mb-10 text-slate-900">
+                    Descubre la alegría de ver a tu bebé <br><span class="text-primary italic">comer de todo</span> con total seguridad.
                 </h1>
-                <p class="text-xl text-gray-600 mb-10 leading-relaxed border-l-4 border-coral pl-6">
-                    Aprende los cortes seguros y las recetas nutritivas que harán que tu bebé disfrute cada bocado, <span class="font-bold text-slate-800 underline">sin miedo ni riesgos.</span>
+                <p class="text-xl md:text-2xl text-slate-500 font-light leading-relaxed mb-12 max-w-xl">
+                    El sistema definitivo de cortes de seguridad que transforma la hora de comer en el momento más feliz y tranquilo de tu día.
                 </p>
-                <div class="space-y-4">
-                    <a href="https://go.hotmart.com/H104335447R?ap=ff26" class="btn-glow inline-block w-full text-white text-center px-8 py-6 rounded-3xl font-black text-2xl italic tracking-tight shadow-xl">
-                        ¡SÍ, QUIERO EL RECETARIO (50% OFF)!
+                <div class="flex flex-col sm:flex-row items-center gap-8">
+                    <a href="#oferta" onclick="trackCheckout()" class="btn-elite text-white px-12 py-8 rounded-[2rem] font-black text-2xl italic tracking-tight w-full sm:w-auto text-center">
+                        ¡COMPRAR POR $9.99!
                     </a>
                 </div>
             </div>
-            <div class="relative">
-                <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&q=80&w=800" 
-                     class="rounded-[3rem] shadow-2xl w-full h-[500px] object-cover border-8 border-baby-warm" alt="Bebé comiendo feliz">
-                <div class="absolute -top-4 -right-4 badge-visible p-5 rounded-2xl shadow-xl rotate-12 border-4 border-white">
-                    <p class="font-black text-2xl leading-none">180+</p>
-                    <p class="font-bold text-xs uppercase">RECETAS</p>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <section class="py-20 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl md:text-5xl font-bold mb-12 italic leading-tight">¿Sientes inseguridad cada vez que comienza la hora de la comida?</h2>
-            <div class="grid md:grid-cols-3 gap-8 text-left">
-                <div class="bg-white p-8 rounded-3xl shadow-sm italic hover-interactive">
-                    <i class="fas fa-exclamation-triangle text-coral mb-4 text-2xl"></i>
-                    <p class="text-gray-600 no-traslucido">Miedo constante a que no sepa tragar y se atragante con los sólidos.</p>
-                </div>
-                <div class="bg-white p-8 rounded-3xl shadow-sm italic hover-interactive">
-                    <i class="fas fa-clock text-coral mb-4 text-2xl"></i>
-                    <p class="text-gray-600 no-traslucido">Cansancio de cocinar lo mismo y que termine siempre en el suelo.</p>
-                </div>
-                <div class="bg-white p-8 rounded-3xl shadow-sm italic hover-interactive">
-                    <i class="fas fa-heartbeat text-coral mb-4 text-2xl"></i>
-                    <p class="text-gray-600 no-traslucido">Inseguridad sobre si está recibiendo los nutrientes para crecer sano.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-6 italic">No solo es un libro digital, es tu tranquilidad diaria</h2>
-            <p class="text-center text-gray-500 mb-16 max-w-2xl mx-auto italic">Este sistema está diseñado para que uses lo que ya tienes en casa y lo conviertas en salud para tu bebé.</p>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center p-6 bg-baby-warm rounded-[2.5rem] hover-interactive">
-                    <div class="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
-                        <i class="fas fa-utensils text-coral text-3xl"></i>
-                    </div>
-                    <h4 class="font-bold text-lg mb-2 italic">Cortes BLW</h4>
-                    <p class="text-sm text-gray-600 no-traslucido">Aprende la forma exacta (dedo, bastón, moneda) de ofrecer cada alimento.</p>
-                </div>
-                <div class="text-center p-6 bg-baby-warm rounded-[2.5rem] hover-interactive">
-                    <div class="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
-                        <i class="fas fa-apple-alt text-coral text-3xl"></i>
-                    </div>
-                    <h4 class="font-bold text-lg mb-2 italic">Nutrición</h4>
-                    <p class="text-sm text-gray-600 no-traslucido">Recetas sin sal ni azúcar que toda la familia puede disfrutar.</p>
-                </div>
-                <div class="text-center p-6 bg-baby-warm rounded-[2.5rem] hover-interactive">
-                    <div class="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
-                        <i class="fas fa-shield-virus text-coral text-3xl"></i>
-                    </div>
-                    <h4 class="font-bold text-lg mb-2 italic">Seguridad</h4>
-                    <p class="text-sm text-gray-600 no-traslucido">Guía visual para diferenciar arcada de atragantamiento real.</p>
-                </div>
-                <div class="text-center p-6 bg-baby-warm rounded-[2.5rem] hover-interactive">
-                    <div class="bg-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner">
-                        <i class="fas fa-check-double text-coral text-3xl"></i>
-                    </div>
-                    <h4 class="font-bold text-lg mb-2 italic">Actualizaciones</h4>
-                    <p class="text-sm text-gray-600 no-traslucido">Acceso de por vida a nuevas recetas que agreguemos.</p>
+            <div class="relative reveal active" style="transition-delay: 200ms;">
+                <div class="absolute inset-0 border-[20px] border-slate-50 rounded-[4rem] -m-6 -z-10"></div>
+                <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&q=80&w=800" 
+                     class="rounded-[4rem] shadow-2xl w-full h-[500px] md:h-[650px] object-cover" alt="Bebé comiendo feliz">
+                
+                <div class="absolute -bottom-10 -left-10 bg-white p-10 rounded-[3rem] shadow-2xl max-w-[280px] hidden md:block border-2 border-primary">
+                    <i class="fas fa-heart text-primary text-3xl mb-4"></i>
+                    <p class="serif text-xl italic font-bold leading-tight mb-4 text-slate-900">"Verlo disfrutar su comida sin miedo es la mejor sensación del mundo."</p>
+                    <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Mamá Empoderada</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 px-6 max-w-5xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-12 italic">¿Por qué este recetario es diferente?</h2>
-        <div class="overflow-hidden rounded-[3rem] shadow-2xl bg-white">
-            <table class="w-full text-left">
-                <thead class="bg-slate-900 text-white">
-                    <tr>
-                        <th class="p-6 text-xl italic">Características</th>
-                        <th class="p-6 text-xl italic text-center bg-coral">Nuestro Método</th>
-                        <th class="p-6 text-xl italic text-center opacity-50">Otros Libros</th>
-                    </tr>
-                </thead>
-                <tbody class="text-gray-700">
-                    <tr class="border-b">
-                        <td class="p-6 font-bold">Guía de cortes incluida</td>
-                        <td class="p-6 text-center text-green-500 font-bold"><i class="fas fa-check-circle"></i></td>
-                        <td class="p-6 text-center text-red-400"><i class="fas fa-times-circle"></i></td>
-                    </tr>
-                    <tr class="border-b">
-                        <td class="p-6 font-bold">Lista de alérgenos paso a paso</td>
-                        <td class="p-6 text-center text-green-500 font-bold"><i class="fas fa-check-circle"></i></td>
-                        <td class="p-6 text-center text-red-400"><i class="fas fa-times-circle"></i></td>
-                    </tr>
-                    <tr>
-                        <td class="p-6 font-bold">Actualizaciones gratis</td>
-                        <td class="p-6 text-center text-green-500 font-bold"><i class="fas fa-check-circle"></i></td>
-                        <td class="p-6 text-center text-red-400"><i class="fas fa-times-circle"></i></td>
-                    </tr>
-                </tbody>
-            </table>
+    <section class="py-32 px-6 bg-slate-50 border-y border-slate-100">
+        <div class="max-w-4xl mx-auto text-center mb-24 reveal">
+            <h2 class="serif text-4xl md:text-7xl mb-10 italic leading-none text-slate-900">Tu tranquilidad <span class="text-primary block">no tiene precio.</span></h2>
         </div>
-    </section>
 
-    <section class="py-20 bg-white px-6">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16 italic text-slate-900">"Ojalá hubiera tenido esto antes..."</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-baby-warm p-10 rounded-[3rem] shadow-sm hover-interactive">
-                    <div class="text-yellow-500 mb-4 italic">★★★★★</div>
-                    <p class="text-gray-900 mb-6 italic font-bold no-traslucido">"Mi bebé no quería comer nada. Probé las recetas de avena y por fin logré que desayunara feliz. Vale cada centavo."</p>
-                    <p class="font-black text-coral">— Laura M.</p>
-                </div>
-                <div class="bg-baby-warm p-10 rounded-[3rem] shadow-md border-4 border-coral hover-interactive">
-                    <div class="text-yellow-500 mb-4 italic">★★★★★</div>
-                    <p class="text-gray-900 mb-6 italic font-bold no-traslucido">"Lo mejor es la guía de cortes. Tenía pánico de darle trozos, pero con las fotos entendí cómo hacerlo seguro. ¡Gracias!"</p>
-                    <p class="font-black text-coral">— Sofia R.</p>
-                </div>
-                <div class="bg-baby-warm p-10 rounded-[3rem] shadow-sm hover-interactive">
-                    <div class="text-yellow-500 mb-4 italic">★★★★★</div>
-                    <p class="text-gray-900 mb-6 italic font-bold no-traslucido">"Súper completa. Los snacks saludables me salvaron las tardes. Mi pediatra me preguntó de dónde sacaba tantas ideas."</p>
-                    <p class="font-black text-coral">— Valentina G.</p>
-                </div>
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-white p-12 rounded-[3.5rem] shadow-xl border-t-[12px] border-primary reveal">
+                <div class="w-16 h-16 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center text-3xl mb-8"><i class="fas fa-shield-virus"></i></div>
+                <h4 class="font-black text-2xl italic mb-6 uppercase tracking-tighter">Cortes de Seguridad</h4>
+                <p class="text-slate-700 font-medium leading-relaxed mb-6">Fotos reales en HD para que nunca más dudes si un trozo es seguro o no.</p>
+            </div>
+            <div class="bg-white p-12 rounded-[3.5rem] shadow-xl border-t-[12px] border-primary reveal" style="transition-delay: 200ms;">
+                <div class="w-16 h-16 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center text-3xl mb-8"><i class="fas fa-apple-whole"></i></div>
+                <h4 class="font-black text-2xl italic mb-6 uppercase tracking-tighter">180+ Recetas Reales</h4>
+                <p class="text-slate-700 font-medium leading-relaxed mb-6">Ideas nutritivas que se preparan en minutos y que tu bebé amará de inmediato.</p>
+            </div>
+            <div class="bg-white p-12 rounded-[3.5rem] shadow-xl border-t-[12px] border-primary reveal" style="transition-delay: 400ms;">
+                <div class="w-16 h-16 bg-red-50 text-red-500 rounded-2xl flex items-center justify-center text-3xl mb-8"><i class="fas fa-vial-circle-check"></i></div>
+                <h4 class="font-black text-2xl italic mb-6 uppercase tracking-tighter">Plan de Alérgenos</h4>
+                <p class="text-slate-700 font-medium leading-relaxed mb-6">Introduce huevo, frutos secos y lácteos con un protocolo seguro de 3 días.</p>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-slate-900 text-white text-center">
-        <div class="max-w-3xl mx-auto">
-            <i class="fas fa-shield-alt text-6xl text-coral mb-8"></i>
-            <h2 class="text-4xl font-bold mb-6 italic">Prueba el método por 15 días</h2>
-            <p class="text-xl text-gray-400 mb-10 italic">Estamos tan seguros de que este recetario cambiará la forma en que alimentas a tu bebé, que si no te sientes satisfecha, te devolvemos el 100% de tu dinero sin preguntas.</p>
-            <a href="https://go.hotmart.com/H104335447R?ap=ff26" class="btn-glow inline-block px-12 py-6 rounded-3xl font-black text-2xl italic tracking-tight uppercase">
-                ¡EMPEZAR SIN RIESGO!
-            </a>
+    <section class="py-32 bg-white overflow-hidden">
+        <h2 class="serif text-5xl text-center mb-20 italic text-slate-900">Historias de <span class="text-primary underline">Éxito Real</span></h2>
+        <div class="testimonial-stream">
+            <div class="t-card">
+                <div class="flex items-center gap-5 mb-8">
+                    <img src="https://i.pravatar.cc/150?u=laura" class="w-16 h-16 rounded-full object-cover">
+                    <div><p class="font-black text-sm italic text-slate-900">Laura P.</p><div class="text-yellow-400 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
+                </div>
+                <p class="italic text-slate-900 font-bold">"Compré el curso por el miedo al atragantamiento. Las fotos de los cortes son increíbles, mi hija de 7 meses ya come sola."</p>
+            </div>
+            <div class="t-card">
+                <div class="flex items-center gap-5 mb-8">
+                    <img src="https://i.pravatar.cc/150?u=ana" class="w-16 h-16 rounded-full object-cover">
+                    <div><p class="font-black text-sm italic text-slate-900">Ana G.</p><div class="text-yellow-400 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
+                </div>
+                <p class="italic text-slate-900 font-bold">"El recetario me salvó la vida. Antes perdía horas pensando qué cocinar, ahora tengo todo listo en 15 minutos."</p>
+            </div>
+            <div class="t-card">
+                <div class="flex items-center gap-5 mb-8">
+                    <img src="https://i.pravatar.cc/150?u=sofia" class="w-16 h-16 rounded-full object-cover">
+                    <div><p class="font-black text-sm italic text-slate-900">Sofía R.</p><div class="text-yellow-400 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
+                </div>
+                <p class="italic text-slate-900 font-bold">"Increíble calidad por $9.99. No esperaba tanto material gráfico y técnico. Vale mucho más."</p>
+            </div>
+            <div class="t-card">
+                <div class="flex items-center gap-5 mb-8">
+                    <img src="https://i.pravatar.cc/150?u=marta" class="w-16 h-16 rounded-full object-cover">
+                    <div><p class="font-black text-sm italic text-slate-900">Marta S.</p><div class="text-yellow-400 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div></div>
+                </div>
+                <p class="italic text-slate-900 font-bold">"Por fin puedo almorzar tranquila mientras mi bebé experimenta con sus alimentos."</p>
+            </div>
         </div>
     </section>
 
-    <section class="py-20 px-6 max-w-4xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-16 italic">Preguntas Frecuentes</h2>
-        <div class="space-y-6">
-            <details class="bg-white p-6 rounded-3xl shadow-sm cursor-pointer group">
-                <summary class="font-bold text-lg list-none flex justify-between items-center italic">
-                    ¿A partir de qué edad puedo usar este recetario?
-                    <i class="fas fa-plus text-coral group-open:rotate-45 transition-transform"></i>
-                </summary>
-                <p class="mt-4 text-gray-600 italic">Desde los 6 meses, cuando tu bebé inicia la alimentación complementaria.</p>
-            </details>
-            <details class="bg-white p-6 rounded-3xl shadow-sm cursor-pointer group">
-                <summary class="font-bold text-lg list-none flex justify-between items-center italic">
-                    ¿El acceso es por tiempo limitado?
-                    <i class="fas fa-plus text-coral group-open:rotate-45 transition-transform"></i>
-                </summary>
-                <p class="mt-4 text-gray-600 italic">No, el acceso es vitalicio. Podrás consultarlo siempre que quieras desde cualquier dispositivo.</p>
-            </details>
+    <section id="oferta" class="py-32 px-6">
+        <div class="max-w-6xl mx-auto bg-slate-900 rounded-[4rem] overflow-hidden flex flex-col lg:grid lg:grid-cols-12 shadow-[0_60px_120px_rgba(0,0,0,0.5)]">
+            <div class="lg:col-span-7 p-12 md:p-24 text-white">
+                <h2 class="serif text-5xl md:text-7xl mb-12 italic leading-tight">Empieza hoy con <br><span class="text-primary italic">todo incluido.</span></h2>
+                <div class="space-y-6 mb-16">
+                    <div class="flex justify-between items-center border-b border-white/5 pb-4 font-bold italic">
+                        <span>✅ Guía Maestra de Cortes BLW</span>
+                        <span class="text-white/20 line-through">$67</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b border-white/5 pb-4 font-bold italic">
+                        <span>✅ Recetario 180+ Ideas Nutritivas</span>
+                        <span class="text-white/20 line-through">$47</span>
+                    </div>
+                    <div class="flex justify-between items-center text-primary font-black italic">
+                        <span>🎁 Bono: Menú Semanal 21 Días</span>
+                        <span class="uppercase text-[10px] tracking-widest">Gratis</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 bg-white p-12 md:p-24 text-center flex flex-col justify-center items-center relative">
+                <p class="text-slate-400 font-bold line-through text-2xl mb-4">$197.00 USD</p>
+                <div class="price-container text-[120px] md:text-[160px]">
+                    <span class="price-symbol">$</span>
+                    <span class="price-main">9</span>
+                    <span class="price-decimal">.99</span>
+                </div>
+                <a href="https://go.hotmart.com/H104335447R?ap=ff26" 
+                   onclick="trackCheckout()"
+                   class="btn-elite text-white w-full py-10 rounded-[2.5rem] font-black text-3xl italic uppercase mt-12 shadow-2xl">
+                    ¡ACCESO VIP!
+                </a>
+            </div>
         </div>
     </section>
 
-    <footer class="py-12 bg-slate-950 text-center text-gray-500 text-[10px] font-bold uppercase tracking-[0.3em] px-6 border-t border-white/5">
-        <p class="mb-4 text-white">&copy; 2026 Alimentación Segura | Nutriendo con Amor</p>
-        <p class="max-w-2xl mx-auto leading-relaxed">Este producto no sustituye el consejo médico profesional. Consulte siempre con su pediatra.</p>
-        <p class="mt-6">Este sitio no es parte de Meta ni de Facebook.</p>
+    <footer class="py-24 bg-slate-50 px-6 text-center">
+        <h3 class="serif text-3xl italic font-black text-slate-900 mb-4">Nutri-Safe System</h3>
+        <p class="text-slate-400 text-[10px] uppercase tracking-widest italic">&copy; 2026 Alimentación Segura - Nutriendo con Amor</p>
     </footer>
 
     <script>
-        let slots = 14;
-        const interval = setInterval(() => {
-            if(slots > 3) {
-                slots--;
-                document.getElementById('slots').innerText = slots;
-            }
-        }, 45000);
+        // --- TIMER ---
+        let time = 14400; 
+        const timerEl = document.getElementById('timer');
+        setInterval(() => {
+            const h = Math.floor(time / 3600);
+            const m = Math.floor((time % 3600) / 60);
+            const s = time % 60;
+            timerEl.innerText = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+            if(time > 0) time--;
+        }, 1000);
+
+        // --- REVEAL ENGINE ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 
 </body>

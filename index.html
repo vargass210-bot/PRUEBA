@@ -40,6 +40,9 @@
             border-bottom: 5px solid #047857;
             box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
             transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
         .btn-payment-green:hover {
             background: linear-gradient(135deg, #34D399, #059669);
@@ -87,7 +90,7 @@
         }
     </style>
 
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code (CON TU PIXEL ID REAL) -->
     <script>
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -97,16 +100,21 @@
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', 'PIXEL_ID_FALSO');
+        
+        // Inicialización con tu Pixel ID real
+        fbq('init', '2012635556262710', { em: '', ph: '' });
         fbq('track', 'PageView');
 
-        function trackCheckout() {
-            fbq('track', 'InitiateCheckout', {
-                value: 9.99,
-                currency: 'USD',
-                content_name: 'Metodo Alimentar es Amar'
-            });
-            window.location.href = "https://pay.hotmart.com/TU_LINK_AQUI";
+        // Función unificada para trackear y redireccionar al enlace oficial de Hotmart
+        function trackCheckout(event) {
+            if (event) event.preventDefault(); // Evita la redirección inmediata para dar tiempo al pixel
+            
+            fbq('track', 'InitiateCheckout');
+            
+            // Redirección segura tras un breve delay de 150ms para que se registre el evento
+            setTimeout(function() {
+                window.location.href = "https://go.hotmart.com/H104335447R?ap=ff26";
+            }, 150);
         }
     </script>
 </head>
@@ -144,9 +152,9 @@
 
                 <!-- Call to Action Principal Verde Magnético -->
                 <div class="pt-4 space-y-3">
-                    <button onclick="trackCheckout()" class="btn-payment-green w-full sm:w-auto text-white font-bold text-lg px-8 py-4 rounded-xl transform hover:-translate-y-0.5 transition-all duration-150 cursor-pointer text-center min-w-[280px]">
+                    <a href="https://go.hotmart.com/H104335447R?ap=ff26" onclick="trackCheckout(event)" class="btn-payment-green w-full sm:w-auto text-white font-bold text-lg px-8 py-4 rounded-xl transform hover:-translate-y-0.5 transition-all duration-150 cursor-pointer text-center min-w-[280px]">
                         ¡Sí! Quiero ver a mi bebé comer seguro
-                    </button>
+                    </a>
                     
                     <div class="flex flex-wrap justify-center lg:justify-start items-center gap-4 text-xs text-[#7A6860] pt-1">
                         <span class="flex items-center gap-1">🔒 Pago 100% Seguro</span>
@@ -342,9 +350,9 @@
             <p class="text-xs md:text-sm text-[#5C4D46] leading-relaxed">Por solo un pago único de <strong class="text-[#2D2522] text-base">$9.99</strong> obtienes acceso ilimitado a todas las guías explicativas, recetas paso a paso y soporte inteligente 24/7 en tu WhatsApp.</p>
             
             <div class="pt-2">
-                <button onclick="trackCheckout()" class="btn-payment-green w-full sm:w-auto text-white font-bold text-base px-8 py-4 rounded-xl cursor-pointer">
+                <a href="https://go.hotmart.com/H104335447R?ap=ff26" onclick="trackCheckout(event)" class="btn-payment-green w-full sm:w-auto text-white font-bold text-base px-8 py-4 rounded-xl cursor-pointer">
                     ¡Quiero comer tranquila mientras mi bebé aprende solo!
-                </button>
+                </a>
                 <p class="text-[11px] text-gray-400 mt-3">🛡️ Garantía incondicional de devolución de 7 días respaldada por Hotmart.</p>
             </div>
         </div>

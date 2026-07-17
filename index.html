@@ -14,44 +14,48 @@
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #FAF8F5;
+            background-color: #FCFAF7;
             color: #2D2522;
         }
         .serif-title {
             font-family: 'Playfair Display', serif;
         }
-        /* Tarjeta 3D premium */
+        /* Tarjeta 3D premium con sutil sombreado de color cálido */
         .premium-3d-card {
             background: #ffffff;
             border: 1px solid rgba(225, 212, 203, 0.4);
-            border-bottom: 5px solid #C47355;
+            border-bottom: 5px solid #D96B43;
             transform: translateY(0px) scale(1);
             transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-            box-shadow: 0 4px 20px -2px rgba(45, 37, 34, 0.05);
+            box-shadow: 0 10px 25px -5px rgba(217, 107, 67, 0.05);
         }
         .premium-3d-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-bottom: 5px solid #22C55E; /* Cambia a verde al pasar el cursor */
-            box-shadow: 0 20px 35px -5px rgba(45, 37, 34, 0.1);
+            transform: translateY(-6px) scale(1.02);
+            border-bottom: 5px solid #10B981; /* Cambia a verde en hover */
+            box-shadow: 0 20px 35px -5px rgba(16, 185, 129, 0.15);
         }
-        /* Botón de pago verde ultra llamativo */
+        /* Botón de pago verde magnético */
         .btn-payment-green {
-            background: linear-gradient(135deg, #22C55E, #16A34A);
-            border-bottom: 5px solid #14532D;
-            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3);
-            transition: all 0.2s ease;
+            background: linear-gradient(135deg, #10B981, #059669);
+            border-bottom: 5px solid #047857;
+            box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .btn-payment-green:hover {
-            background: linear-gradient(135deg, #4ade80, #16a34a);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 24px rgba(34, 197, 94, 0.4);
+            background: linear-gradient(135deg, #34D399, #059669);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(16, 185, 129, 0.45);
+        }
+        .btn-payment-green:active {
+            transform: translateY(1px);
+            border-bottom-width: 2px;
         }
         /* Solapa flotante de urgencia */
         .floating-badge-3d {
-            background: linear-gradient(135deg, #C47355, #A25638);
-            border-bottom: 4px solid #733921;
-            transform: rotate(-2deg);
-            box-shadow: 0 8px 16px rgba(196, 115, 85, 0.3);
+            background: linear-gradient(135deg, #D96B43, #B84A24);
+            border-bottom: 4px solid #8A3012;
+            transform: rotate(-1.5deg);
+            box-shadow: 0 8px 16px rgba(217, 107, 67, 0.25);
             transition: all 0.2s ease;
         }
         .floating-badge-3d:hover {
@@ -106,11 +110,11 @@
         }
     </script>
 </head>
-<body class="antialiased selection:bg-[#22C55E] selection:text-white">
+<body class="antialiased selection:bg-[#10B981] selection:text-white">
 
-    <!-- Barra de Notificación Superior (Colores Optimizados) -->
-    <div class="bg-[#2D2522] text-[#FAF6F0] py-2 px-4 text-center text-xs md:text-sm font-medium tracking-wide">
-        🔥 Oferta de lanzamiento válida solo por hoy. <span class="text-[#22C55E] font-bold underline">Cupos con 70% de descuento limitados.</span>
+    <!-- Barra de Notificación Superior -->
+    <div class="bg-[#2D2522] text-[#FAF6F0] py-2.5 px-4 text-center text-xs md:text-sm font-semibold tracking-wide">
+        🔥 Oferta de lanzamiento válida solo por hoy. <span class="text-[#34D399] underline">Cupos con 70% de descuento limitados.</span>
     </div>
 
     <!-- SECCIÓN HERO -->
@@ -125,7 +129,7 @@
                 
                 <h1 class="serif-title text-4xl md:text-5xl lg:text-6xl text-[#2D2522] font-bold leading-tight">
                     Tu bebé come solo, <br class="hidden md:inline">
-                    <span class="text-[#C47355] italic font-normal">tú descansas.</span>
+                    <span class="text-[#D96B43] italic font-normal">tú descansas.</span>
                 </h1>
                 
                 <p class="text-base md:text-lg text-[#5C4D46] max-w-xl mx-auto lg:mx-0 leading-relaxed">
@@ -134,11 +138,11 @@
 
                 <!-- Tarjeta de Beneficio WhatsApp -->
                 <div class="bg-white/90 backdrop-blur-sm p-4 rounded-xl border border-[#E1D4CB] inline-flex items-center gap-3 text-left max-w-md mx-auto lg:mx-0 shadow-sm">
-                    <div class="bg-[#FAF6F0] p-2 rounded-lg text-xl">📱</div>
+                    <div class="bg-[#FCFAF7] p-2 rounded-lg text-xl">📱</div>
                     <p class="text-xs text-[#5C4D46]"><strong class="text-[#2D2522]">Asistente 24/7 en tu WhatsApp:</strong> Recibe guías de cortes, recetas personalizadas y alertas de forma inmediata sin salir de tu chat habitual.</p>
                 </div>
 
-                <!-- Call to Action Principal Verde -->
+                <!-- Call to Action Principal Verde Magnético -->
                 <div class="pt-4 space-y-3">
                     <button onclick="trackCheckout()" class="btn-payment-green w-full sm:w-auto text-white font-bold text-lg px-8 py-4 rounded-xl transform hover:-translate-y-0.5 transition-all duration-150 cursor-pointer text-center min-w-[280px]">
                         ¡Sí! Quiero ver a mi bebé comer seguro
@@ -152,7 +156,7 @@
                 </div>
             </div>
 
-            <!-- Columna Derecha: Mockup de WhatsApp con Imágenes de Apoyo -->
+            <!-- Columna Derecha: Mockup de WhatsApp con Imagen de Cortes -->
             <div class="relative flex justify-center lg:justify-end">
                 <div class="absolute -inset-4 bg-[#E1D4CB]/30 rounded-full blur-3xl -z-10"></div>
                 
@@ -161,29 +165,29 @@
                     <!-- Solapa de Precio Destacado -->
                     <div class="absolute -top-5 -right-5 bg-[#2D2522] text-white px-4 py-3 rounded-xl shadow-lg border-b-4 border-black text-center z-20">
                         <p class="text-[10px] uppercase tracking-wider text-gray-400 font-bold line-through">Antes $34.99</p>
-                        <p class="text-xl font-extrabold text-[#22C55E]">$9.99</p>
+                        <p class="text-xl font-extrabold text-[#10B981]">$9.99</p>
                         <p class="text-[9px] font-medium text-gray-300">Pago único definitivo</p>
                     </div>
 
                     <!-- WhatsApp UI -->
                     <div class="bg-[#F0ECE6] rounded-2xl overflow-hidden border border-gray-200">
                         <div class="bg-[#2D2522] p-3 text-white flex items-center gap-3">
-                            <div class="w-8 h-8 rounded-full bg-[#C47355] flex items-center justify-center font-bold text-sm text-white shadow-inner">👶</div>
+                            <div class="w-8 h-8 rounded-full bg-[#D96B43] flex items-center justify-center font-bold text-sm text-white shadow-inner">👶</div>
                             <div>
                                 <h4 class="text-xs font-bold">Alimentar es Amar • Chat</h4>
-                                <p class="text-[9px] text-[#22C55E] flex items-center gap-1">● En línea • Guía de Alimentación</p>
+                                <p class="text-[9px] text-[#10B981] flex items-center gap-1 font-semibold">● En línea • Guía de Alimentación</p>
                             </div>
                         </div>
                         <div class="p-3 space-y-3 text-xs min-h-[280px] flex flex-col justify-end">
                             
                             <!-- Imagen en el chat (Cortes BLW) -->
                             <div class="bg-white p-1 rounded-lg shadow-sm max-w-[85%] self-start border border-gray-100">
-                                <img src="https://images.unsplash.com/photo-1596272875729-ed2ff7d6d9c5?auto=format&fit=crop&w=300&q=80" alt="Cortes seguros de aguacate para bebé" class="rounded-md w-full h-24 object-cover mb-1.5">
-                                <p class="font-semibold text-[#C47355] text-[11px] px-1">🥑 Guía de Cortes: Aguacate</p>
-                                <p class="text-gray-600 leading-snug text-[10px] px-1 pb-1">Corta en bastones del tamaño de tu dedo índice. El alimento debe estar tan suave que se deshaga al aplastarlo con tus dedos.</p>
+                                <img src="https://images.unsplash.com/photo-1596272875729-ed2ff7d6d9c5?auto=format&fit=crop&w=300&q=80" alt="Cortes seguros para bebé" class="rounded-md w-full h-24 object-cover mb-1.5">
+                                <p class="font-semibold text-[#D96B43] text-[11px] px-1">🥑 Guía de Cortes: Aguacate</p>
+                                <p class="text-gray-600 leading-snug text-[10px] px-1 pb-1">Corta en bastones del tamaño de tu dedo índice. El alimento debe deshacerse al aplastarlo suavemente con tus dedos.</p>
                             </div>
                             
-                            <div class="bg-[#22C55E] text-white p-2.5 rounded-lg rounded-tr-none shadow-sm max-w-[80%] self-end">
+                            <div class="bg-[#10B981] text-white p-2.5 rounded-lg rounded-tr-none shadow-sm max-w-[80%] self-end font-medium">
                                 <p class="text-[11px]">¡Qué práctico! Justo lo que necesitaba para hoy.</p>
                             </div>
                         </div>
@@ -199,7 +203,7 @@
         <div class="max-w-5xl mx-auto space-y-12">
             <div class="text-center space-y-3">
                 <h2 class="serif-title text-3xl md:text-4xl font-bold text-[#2D2522]">Olvídate de las dudas más estresantes de la crianza</h2>
-                <p class="text-[#5C4D46] max-w-xl mx-auto text-sm md:text-base">Alimentar a tu hijo no debe ser una fuente de ansiedad. Te acompañamos paso a paso:</p>
+                <p class="text-[#5C4D46] max-w-xl mx-auto text-sm md:text-base">Alimentar a tu hijo no debe ser una fuente de ansiedad. Te acompañamos paso a paso para que disfrutes este proceso:</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -231,51 +235,52 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE CARACTERÍSTICAS (Estructura Z Completa con Imágenes de Apoyo) -->
+    <!-- SECCIÓN DE CARACTERÍSTICAS (Estructura Z Completa con la Imagen del Bebé Sentado) -->
     <section class="py-16 px-4 max-w-6xl mx-auto space-y-24">
         
-        <!-- Bloque 1 -->
+        <!-- Bloque 1: Imagen del Bebé Sentado comiendo feliz de forma autónoma -->
         <div class="flex flex-col lg:flex-row items-center gap-12">
             <div class="flex-1 space-y-4 text-center lg:text-left">
-                <span class="text-xs font-bold text-[#C47355] uppercase tracking-wider">Ítem 01 • Autonomía guiada</span>
+                <span class="text-xs font-bold text-[#D96B43] uppercase tracking-wider">Ítem 01 • Autonomía guiada</span>
                 <h3 class="serif-title text-2xl md:text-3xl font-bold text-[#2D2522]">Desarrollo psicomotriz avanzado desde el primer bocado</h3>
                 <p class="text-sm text-[#5C4D46] leading-relaxed">
                     Al permitir que tu bebé explore texturas seguras por sí mismo, potencias activamente su <strong class="text-[#2D2522]">coordinación ojo-mano-boca</strong>. Esto estimula los músculos encargados de la masticación, sentando bases sólidas para el habla futura.
                 </p>
-                <div class="border-l-4 border-[#22C55E] pl-3 py-1 text-left">
+                <div class="border-l-4 border-[#10B981] pl-3 py-1 text-left">
                     <p class="text-[11px] text-[#5C4D46] mt-1"><strong class="text-[#2D2522]">Estimulación real:</strong> La manipulación directa activa conexiones neuronales que las papillas convencionales no consiguen.</p>
                 </div>
             </div>
             <div class="flex-1 max-w-md w-full mx-auto">
-                <img src="https://images.unsplash.com/photo-1510154274505-1a229a7775b0?auto=format&fit=crop&w=500&q=80" alt="Bebé comiendo frutas de manera autónoma" class="w-full h-72 object-cover rounded-2xl shadow-md border border-[#E1D4CB]">
+                <!-- Imagen Restablecida: Bebé sentado comiendo feliz -->
+                <img src="https://images.unsplash.com/photo-1536640712-4d4c36ff0e4e?auto=format&fit=crop&w=500&q=80" alt="Bebé comiendo de forma autónoma sentado" class="w-full h-80 object-cover rounded-2xl shadow-lg border border-[#E1D4CB]">
             </div>
         </div>
 
         <!-- Bloque 2 -->
         <div class="flex flex-col lg:flex-row-reverse items-center gap-12">
             <div class="flex-1 space-y-4 text-center lg:text-left">
-                <span class="text-xs font-bold text-[#C47355] uppercase tracking-wider">Ítem 02 • Practicidad absoluta</span>
+                <span class="text-xs font-bold text-[#D96B43] uppercase tracking-wider">Ítem 02 • Practicidad absoluta</span>
                 <h3 class="serif-title text-2xl md:text-3xl font-bold text-[#2D2522]">Cocina una sola vez para toda la familia sin estrés</h3>
                 <p class="text-sm text-[#5C4D46] leading-relaxed">
                     Aprende a adaptar de manera óptima las comidas familiares para que tu bebé se integre a la mesa sin complicaciones. Olvídate de los trituradores, ollas múltiples y platos adicionales.
                 </p>
-                <div class="border-l-4 border-[#2D2522] pl-3 py-1 text-left">
+                <div class="border-l-4 border-[#D96B43] pl-3 py-1 text-left">
                     <p class="text-[11px] text-[#5C4D46] mt-1"><strong class="text-[#2D2522]">Ahorro de tiempo:</strong> Diseñado por expertos para reducir hasta un 70% tu tiempo diario en la cocina.</p>
                 </div>
             </div>
             <div class="flex-1 max-w-md w-full mx-auto">
-                <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=500&q=80" alt="Plato saludable preparado en casa para la familia" class="w-full h-72 object-cover rounded-2xl shadow-md border border-[#E1D4CB]">
+                <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=500&q=80" alt="Plato saludable familiar" class="w-full h-80 object-cover rounded-2xl shadow-lg border border-[#E1D4CB]">
             </div>
         </div>
 
     </section>
 
-    <!-- SECCIÓN DE TESTIMONIOS (Fotos Reales de Crianza) -->
-    <section class="bg-[#F3EDE4] py-16 px-4 border-t border-[#E1D4CB]">
+    <!-- SECCIÓN DE TESTIMONIOS -->
+    <section class="bg-[#F5EFE6] py-16 px-4 border-t border-[#E1D4CB]">
         <div class="max-w-6xl mx-auto space-y-10">
             <div class="text-center space-y-2">
                 <h2 class="serif-title text-3xl font-bold text-[#2D2522]">Mamás reales, resultados reales</h2>
-                <p class="text-xs md:text-sm text-[#5C4D46]">Mira la experiencia de quienes confiaron en el Método Alimentar es Amar.</p>
+                <p class="text-xs md:text-sm text-[#5C4D46]">Mira la experiencia de quienes ya confían en el Método Alimentar es Amar.</p>
             </div>
 
             <!-- Carrusel Responsivo -->
@@ -288,7 +293,7 @@
                         <p class="text-xs text-[#5C4D46] italic leading-relaxed">"Vivía con un terror paralizante de que mi gordo se ahogara. El asistente en WhatsApp me dio tanta claridad sobre los cortes que me animé. Hoy come feliz, agarra todo solo y yo almuerzo tranquila."</p>
                     </div>
                     <div class="flex items-center gap-3 pt-4 border-t border-gray-100 mt-4">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&h=120&q=80" alt="Mariana L." class="w-10 h-10 rounded-full object-cover border-2 border-[#C47355]">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&h=120&q=80" alt="Mariana L." class="w-10 h-10 rounded-full object-cover border-2 border-[#D96B43]">
                         <div>
                             <h4 class="text-xs font-bold text-[#2D2522]">Mariana L.</h4>
                             <p class="text-[10px] text-[#7A6860]">Mamá de Mateo (7 meses)</p>
@@ -303,7 +308,7 @@
                         <p class="text-xs text-[#5C4D46] italic leading-relaxed">"Lo mejor de todo es que está directamente en WhatsApp. Si tengo una duda en el supermercado, le pregunto al chat y al instante sé si es apto y cómo prepararlo en casa."</p>
                     </div>
                     <div class="flex items-center gap-3 pt-4 border-t border-gray-100 mt-4">
-                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=120&h=120&q=80" alt="Valeria G." class="w-10 h-10 rounded-full object-cover border-2 border-[#C47355]">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=120&h=120&q=80" alt="Valeria G." class="w-10 h-10 rounded-full object-cover border-2 border-[#D96B43]">
                         <div>
                             <h4 class="text-xs font-bold text-[#2D2522]">Valeria G.</h4>
                             <p class="text-[10px] text-[#7A6860]">Mamá de Emma (9 meses)</p>
@@ -318,7 +323,7 @@
                         <p class="text-xs text-[#5C4D46] italic leading-relaxed">"Mi pediatra nos advirtió sobre el hierro a los 6 meses. Gracias a las recetas y combinaciones de este sistema, los exámenes de sangre de mi bebé salieron perfectos."</p>
                     </div>
                     <div class="flex items-center gap-3 pt-4 border-t border-gray-100 mt-4">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&h=120&q=80" alt="Paula C." class="w-10 h-10 rounded-full object-cover border-2 border-[#C47355]">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&h=120&q=80" alt="Paula C." class="w-10 h-10 rounded-full object-cover border-2 border-[#D96B43]">
                         <div>
                             <h4 class="text-xs font-bold text-[#2D2522]">Paula C.</h4>
                             <p class="text-[10px] text-[#7A6860]">Mamá de Tomás (11 meses)</p>
@@ -330,7 +335,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE CTA DE CIERRE (Botón de Pago Verde de Alta Conversión) -->
+    <!-- SECCIÓN DE CTA DE CIERRE -->
     <section class="py-16 px-4 bg-white text-center border-t border-[#E1D4CB]">
         <div class="max-w-xl mx-auto space-y-6">
             <h2 class="serif-title text-2xl md:text-3xl font-bold text-[#2D2522]">Dale a tu hijo el mejor comienzo alimentario posible</h2>

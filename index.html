@@ -3,703 +3,333 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BEBÉ CHAT | NUTRI-SAFE SYSTEM</title>
-    
-    <!-- ===== META PIXEL (INTACTO) ===== -->
-    <script>
-      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-      document,'script','https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '2012635556262710', { em: '', ph: '' }); 
-      fbq('track', 'PageView');
-      function trackCheckout() { fbq('track', 'InitiateCheckout'); }
-    </script>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&family=Playfair+Display:ital,wght@0,700;1,900&display=swap" rel="stylesheet">
+    <title>Bebé Chat - Nutri-Safe System</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --coral: #ff5f40;
-            --coral-light: #fff2ef;
-            --green: #25D366;
-            --green-dark: #128C7E;
-            --dark: #0f172a;
-            --cream: #fffbf7;
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FAF6F0;
+            color: #2D2522;
         }
-
-        * { box-sizing: border-box; }
-        body { font-family: 'Outfit', sans-serif; background: #ffffff; color: var(--dark); margin: 0; overflow-x: hidden; }
-        .serif { font-family: 'Playfair Display', serif; }
-
-        /* STICKY NAV */
-        .sticky-nav {
-            background: #000;
-            color: white;
-            padding: 12px 24px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+        .serif-title {
+            font-family: 'Playfair Display', serif;
         }
-
-        /* BOTÓN VERDE */
-        .btn-action {
-            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        /* Efecto de Solapas 3D de alta conversión */
+        .premium-3d-card {
+            background: #ffffff;
+            border: 1px solid rgba(225, 212, 203, 0.4);
+            border-bottom: 5px solid #D4A373;
+            transform: translateY(0px) scale(1);
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 4px 20px -2px rgba(45, 37, 34, 0.05);
+        }
+        .premium-3d-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-bottom: 5px solid #C47355;
+            box-shadow: 0 20px 35px -5px rgba(45, 37, 34, 0.1);
+        }
+        /* Solapa flotante de urgencia */
+        .floating-badge-3d {
+            background: linear-gradient(135deg, #FF7A59, #E75A36);
+            border-bottom: 4px solid #B53617;
+            transform: rotate(-2deg);
+            box-shadow: 0 8px 16px rgba(231, 90, 54, 0.3);
+            transition: all 0.2s ease;
+        }
+        .floating-badge-3d:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+        /* Estilos del Carrusel Responsivo */
+        .testimonial-track {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 22px 30px;
-            border-radius: 1.5rem;
-            color: white;
-            font-weight: 900;
-            font-style: italic;
-            text-transform: uppercase;
-            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.4);
-            animation: pulse 2s infinite;
-            text-decoration: none;
-            width: 100%;
-            font-size: 1.1rem;
-            letter-spacing: 0.03em;
-            transition: transform 0.15s;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
         }
-        .btn-action:hover { transform: translateY(-2px); }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        .testimonial-track::-webkit-scrollbar {
+            display: none;
         }
-
-        /* BADGE DE GARANTÍA */
-        .garantia-badge {
-            background: #f0fdf4;
-            border: 2px solid #bbf7d0;
-            border-radius: 1rem;
-            padding: 16px 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 13px;
-            color: #166534;
-            font-weight: 600;
+        .testimonial-item {
+            scroll-snap-align: start;
+            flex: 0 0 100%;
         }
-
-        /* STEP NUMBERS */
-        .step-num { color: #000; font-weight: 900; font-size: clamp(4rem, 10vw, 6rem); line-height: 1; }
-
-        /* VIP CARD */
-        .vip-card {
-            background: linear-gradient(135deg, #fff 0%, #fff5f2 100%);
-            border: 2px dashed var(--coral);
-            position: relative;
+        @media (min-width: 768px) {
+            .testimonial-item {
+                flex: 0 0 calc(50% - 12px);
+            }
         }
-        .vip-badge {
-            background: var(--coral);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 99px;
-            font-size: 10px;
-            font-weight: 900;
-            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-            white-space: nowrap;
-        }
-
-        /* TESTIMONIAL SLIDER */
-        .testimonial-slider { overflow: hidden; width: 100%; background: var(--dark); padding: 60px 0; }
-        .track { 
-            display: flex; 
-            width: max-content; 
-            animation: scroll 55s linear infinite; 
-        }
-        .track:hover { animation-play-state: paused; }
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-360px * 9)); }
-        }
-        .testimonial-card {
-            width: 320px;
-            margin: 0 20px;
-            background: white;
-            padding: 30px;
-            border-radius: 2rem;
-            flex-shrink: 0;
-            border-top: 4px solid var(--coral);
-        }
-        .testimonial-avatar {
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--coral);
-            flex-shrink: 0;
-        }
-        .star-row { color: #f59e0b; font-size: 14px; margin-bottom: 10px; letter-spacing: 2px; }
-
-        /* MOCKUP */
-        .mockup-phone {
-            background: #1e293b;
-            border-radius: 2.5rem;
-            padding: 14px;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.3);
-            max-width: 280px;
-            margin: 0 auto;
-        }
-        .mockup-screen {
-            background: var(--cream);
-            border-radius: 1.8rem;
-            overflow: hidden;
-            padding: 20px;
-        }
-
-        /* SECCIÓN DE AUTORIDAD */
-        .authority-section {
-            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
-            color: white;
-        }
-
-        /* FADE IN ANIMACIONES */
-        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
-        .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-        /* PRECIO */
-        .price-display { 
-            background: linear-gradient(135deg, #fff5f2, #fff);
-            border: 3px solid var(--coral);
-            border-radius: 2rem;
-            padding: 24px 40px;
-            display: inline-block;
-        }
-
-        /* URGENCIA REAL */
-        .urgencia-real {
-            background: #fef2f2;
-            border: 1px solid #fecaca;
-            border-radius: 0.75rem;
-            padding: 12px 16px;
-            font-size: 13px;
-            color: #dc2626;
-            font-weight: 700;
-            text-align: center;
-        }
-
-        /* MEDIOS PAGO */
-        .payment-icons {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 12px;
-            opacity: 0.7;
-            font-size: 11px;
-            font-weight: 600;
-            color: #64748b;
-        }
-        .payment-chip {
-            background: #f1f5f9;
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
-            padding: 4px 10px;
-            font-size: 11px;
-            color: #475569;
-            font-weight: 700;
+        @media (min-width: 1024px) {
+            .testimonial-item {
+                flex: 0 0 calc(33.333% - 16px);
+            }
         }
     </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'PIXEL_ID_FALSO');
+        fbq('track', 'PageView');
+
+        function trackCheckout() {
+            fbq('track', 'InitiateCheckout', {
+                value: 9.99,
+                currency: 'USD',
+                content_name: 'Nutri-Safe System Infinit'
+            });
+            window.location.href = "https://pay.hotmart.com/TU_LINK_AQUI";
+        }
+    </script>
 </head>
-<body>
+<body class="antialiased selection:bg-[#E75A36] selection:text-white">
 
-<!-- ===== STICKY NAV ===== -->
-<div class="sticky-nav">
-    <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;">
-        <div style="display:flex;align-items:center;gap:8px;">
-            <span style="color:var(--green);">●</span>
-            <span>Oferta especial 2026</span>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px;">
-            <span style="color:#94a3b8;font-size:10px;">Precio sube el lunes</span>
-            <span style="background:var(--coral);color:white;padding:4px 12px;border-radius:99px;">$9.99 USD</span>
-        </div>
+    <!-- Barra de Notificación Superior -->
+    <div class="bg-[#2D2522] text-[#FAF6F0] py-2 px-4 text-center text-xs md:text-sm font-medium tracking-wide">
+        🔥 Oferta de lanzamiento válida solo por hoy. <span class="text-[#FF7A59] underline">Cupos con 70% de descuento limitados.</span>
     </div>
-</div>
 
-<!-- ===== HERO ===== -->
-<section style="padding:64px 24px 96px;max-width:1200px;margin:0 auto;">
-    <div style="display:grid;grid-template-columns:1fr;gap:48px;align-items:center;" class="hero-grid">
-        <div style="text-align:center;">
-            <!-- TRUST BADGE ARRIBA -->
-            <div style="display:inline-flex;align-items:center;gap:8px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:99px;padding:6px 16px;margin-bottom:24px;font-size:12px;font-weight:700;color:#166534;">
-                <span>⭐</span>
-                <span>+2.400 mamás ya usan el método</span>
-                <span>⭐</span>
-            </div>
+    <!-- SECCIÓN HERO -->
+    <header class="relative overflow-hidden py-12 md:py-24 px-4 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+            
+            <!-- Columna Izquierda: Copys de Valor -->
+            <div class="space-y-6 text-center lg:text-left z-10">
+                <div class="inline-block floating-badge-3d text-white font-bold text-xs uppercase tracking-widest px-4 py-1.5 rounded-md mb-2">
+                    🎯 Método Avalado & 100% Práctico
+                </div>
+                
+                <h1 class="serif-title text-4xl md:text-5xl lg:text-6xl text-[#2D2522] font-bold leading-tight">
+                    Tu bebé come solo, <br class="hidden md:inline">
+                    <span class="text-[#C47355] italic font-normal">tú descansas.</span>
+                </h1>
+                
+                <p class="text-base md:text-lg text-[#5C4D46] max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                    Olvídate de las papillas eternas y el miedo constante. Con el sistema interactivo <strong class="text-[#2D2522]">Nutri-Safe de Bebé Chat</strong>, guías la alimentación complementaria de tu hijo de forma segura, previniendo la anemia y fomentando su motricidad desde el primer día.
+                </p>
 
-            <h1 class="serif" style="font-size:clamp(2.8rem,7vw,5.5rem);line-height:1.1;margin-bottom:24px;color:#000;">
-                Tu bebé come solo,<br>
-                <span style="color:var(--coral);font-style:italic;">tú descansas.</span>
-            </h1>
-            <p style="font-size:1.15rem;color:#64748b;margin-bottom:36px;font-style:italic;font-weight:300;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.7;">
-                Eliminá el pánico al atragantamiento con el método Nutri-Safe de Bebé Chat.
-                La guía que ningún pediatra te explica — pero toda mamá necesita.
-            </p>
+                <!-- Tarjeta de Beneficio WhatsApp -->
+                <div class="bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-[#E1D4CB] inline-flex items-center gap-3 text-left max-w-md mx-auto lg:mx-0 shadow-sm">
+                    <div class="bg-[#FAF6F0] p-2 rounded-lg text-xl">📱</div>
+                    <p class="text-xs text-[#5C4D46]"><strong class="text-[#2D2522]">Asistente 24/7 en tu WhatsApp:</strong> Recibe guías de cortes, recetas personalizadas y alertas nutricionales de forma inmediata sin salir de tu chat habitual.</p>
+                </div>
 
-            <div style="max-width:340px;margin:0 auto 20px;">
-                <a href="#comprar" onclick="trackCheckout()" class="btn-action" style="font-size:1.2rem;">
-                    <span>🔓</span> ¡ACCESO POR $9.99!
-                </a>
-            </div>
-            <div style="max-width:340px;margin:0 auto;">
-                <div class="garantia-badge">
-                    <span style="font-size:24px;">🛡️</span>
-                    <div>
-                        <div style="font-weight:800;font-size:14px;">Garantía 7 días sin preguntas</div>
-                        <div style="font-size:12px;color:#4ade80;margin-top:2px;">Si no te sirve, te devolvemos todo</div>
+                <!-- Call to Action Principal -->
+                <div class="pt-4 space-y-3">
+                    <button onclick="trackCheckout()" class="w-full sm:w-auto bg-[#E75A36] hover:bg-[#C44E2E] text-white font-bold text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-150 cursor-pointer text-center min-w-[280px]">
+                        ¡Quiero el Nutri-Safe System ahora!
+                    </button>
+                    
+                    <div class="flex flex-wrap justify-center lg:justify-start items-center gap-4 text-xs text-[#7A6860] pt-1">
+                        <span class="flex items-center gap-1">🔒 Pago 100% Seguro</span>
+                        <span class="flex items-center gap-1">⚡ Acceso Inmediato</span>
+                        <span class="flex items-center gap-1">🔰 Garantía de 7 días</span>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- MOCKUP DEL PRODUCTO -->
-        <div style="display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap;" class="fade-in">
-            <div class="mockup-phone">
-                <div class="mockup-screen">
-                    <div style="background:var(--coral);color:white;font-size:9px;font-weight:900;padding:4px 10px;border-radius:99px;margin-bottom:12px;display:inline-block;letter-spacing:0.05em;">NUTRI-SAFE SYSTEM</div>
-                    <div style="font-size:13px;font-weight:800;color:#0f172a;margin-bottom:8px;">🥑 Guía de Cortes HD</div>
-                    <div style="background:#f8fafc;border-radius:8px;padding:10px;margin-bottom:8px;">
-                        <div style="font-size:10px;font-weight:700;color:#64748b;margin-bottom:4px;">PALTA / AGUACATE</div>
-                        <div style="display:flex;gap:6px;">
-                            <div style="background:#dcfce7;border-radius:6px;padding:6px 8px;font-size:9px;font-weight:700;color:#166534;flex:1;text-align:center;">6-8 m<br>Tiras largas</div>
-                            <div style="background:#fef3c7;border-radius:6px;padding:6px 8px;font-size:9px;font-weight:700;color:#92400e;flex:1;text-align:center;">9-12 m<br>Cubos ½</div>
-                            <div style="background:#ffe4e6;border-radius:6px;padding:6px 8px;font-size:9px;font-weight:700;color:#9f1239;flex:1;text-align:center;">12+ m<br>Rodajas</div>
+            <!-- Columna Derecha: Mockup Interactivo de WhatsApp -->
+            <div class="relative flex justify-center lg:justify-end">
+                <div class="absolute -inset-4 bg-[#E1D4CB]/30 rounded-full blur-3xl -z-10"></div>
+                
+                <div class="relative max-w-[340px] md:max-w-[380px] bg-white p-4 rounded-3xl shadow-2xl border border-[#E1D4CB] transform lg:rotate-2 hover:rotate-0 transition-transform duration-500">
+                    
+                    <!-- Solapa 3D Flotante de Precio Real -->
+                    <div class="absolute -top-5 -right-5 bg-[#2D2522] text-white px-4 py-3 rounded-xl shadow-lg border-b-4 border-black text-center z-20">
+                        <p class="text-[10px] uppercase tracking-wider text-gray-400 font-bold line-through">Antes $34.99</p>
+                        <p class="text-xl font-extrabold text-[#FF7A59]">$9.99</p>
+                        <p class="text-[9px] font-medium text-gray-300">Pago único definitivo</p>
+                    </div>
+
+                    <!-- WhatsApp UI -->
+                    <div class="bg-[#F0ECE6] rounded-2xl overflow-hidden border border-gray-200">
+                        <div class="bg-[#2D2522] p-3 text-white flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-[#C47355] flex items-center justify-center font-bold text-sm text-white shadow-inner">👶</div>
+                            <div>
+                                <h4 class="text-xs font-bold">Bebé Chat • Nutri-Safe</h4>
+                                <p class="text-[9px] text-[#FF7A59] flex items-center gap-1">● En línea • Asistente experto</p>
+                            </div>
+                        </div>
+                        <div class="p-3 space-y-3 text-xs min-h-[280px] flex flex-col justify-end">
+                            <div class="bg-white p-2.5 rounded-lg rounded-tl-none shadow-sm max-w-[85%] self-start border border-gray-100">
+                                <p class="font-semibold text-[#C47355] text-[11px] mb-0.5">🥑 Guía de Cortes: Aguacate</p>
+                                <p class="text-gray-600 leading-snug text-[11px]">Para 6 meses, córtalo en bastones del tamaño de tu dedo índice. Debe estar tan suave que se deshaga al aplastarlo con tus dedos. ¡Cero riesgo de ahogo!</p>
+                            </div>
+                            <div class="bg-[#E75A36] text-white p-2.5 rounded-lg rounded-tr-none shadow-sm max-w-[80%] self-end">
+                                <p class="text-[11px]">¡Perfecto! Entendido. ¿Y qué receta rica en hierro puedo hacer hoy?</p>
+                            </div>
                         </div>
                     </div>
-                    <div style="background:#f8fafc;border-radius:8px;padding:10px;margin-bottom:8px;">
-                        <div style="font-size:10px;font-weight:700;color:#64748b;margin-bottom:4px;">🩸 BATIDO IRON · RECETA #7</div>
-                        <div style="font-size:9px;color:#475569;line-height:1.5;">Remolacha · Espinaca · Naranja<br><span style="color:var(--coral);font-weight:700;">+62% absorción de hierro</span></div>
-                    </div>
-                    <div style="background:#f8fafc;border-radius:8px;padding:8px;">
-                        <div style="font-size:9px;font-weight:700;color:#64748b;">📅 MENÚ SEMANA 1</div>
-                        <div style="font-size:8px;color:#94a3b8;margin-top:2px;">Lunes · Martes · Miércoles...</div>
-                    </div>
                 </div>
             </div>
 
-            <div style="max-width:220px;">
-                <div style="background:var(--coral-light);border-radius:1.5rem;padding:20px;margin-bottom:12px;">
-                    <div style="font-size:28px;font-weight:900;color:var(--coral);">180+</div>
-                    <div style="font-size:12px;font-weight:700;color:#64748b;">Recetas saludables</div>
-                </div>
-                <div style="background:#f0fdf4;border-radius:1.5rem;padding:20px;margin-bottom:12px;">
-                    <div style="font-size:28px;font-weight:900;color:#16a34a;">40+</div>
-                    <div style="font-size:12px;font-weight:700;color:#64748b;">Guías de corte HD</div>
-                </div>
-                <div style="background:#fef9c3;border-radius:1.5rem;padding:20px;">
-                    <div style="font-size:28px;font-weight:900;color:#ca8a04;">21</div>
-                    <div style="font-size:12px;font-weight:700;color:#64748b;">Días de menú completo</div>
-                </div>
-            </div>
         </div>
-    </div>
-</section>
+    </header>
 
-<!-- ===== PROBLEMAS ===== -->
-<section style="padding:96px 24px;background:#f8fafc;">
-    <div style="max-width:1200px;margin:0 auto;text-align:center;">
-        <h2 class="serif fade-in" style="font-size:clamp(2rem,5vw,4rem);margin-bottom:16px;font-style:italic;color:#000;">
-            ¿Te preocupa su <span style="color:var(--coral);">crecimiento?</span>
-        </h2>
-        <p style="color:#64748b;margin-bottom:64px;font-style:italic;">Estas son las 3 dudas que más nos escriben las mamás</p>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
-            <div class="fade-in" style="background:white;padding:40px;border-radius:2.5rem;box-shadow:0 4px 24px rgba(0,0,0,0.06);border-bottom:4px solid var(--coral);">
-                <div style="font-size:3rem;margin-bottom:16px;">🩸</div>
-                <h3 style="font-weight:900;font-size:1.3rem;margin-bottom:12px;color:#000;text-transform:uppercase;font-style:italic;">Anemia</h3>
-                <p style="color:#64748b;font-style:italic;line-height:1.7;">Las reservas de hierro bajan a los 6 meses. Si no sabés qué ofrecer, su desarrollo está en riesgo.</p>
+    <!-- SECCIÓN DE AGITACIÓN DE DOLORES (Tarjetas 3D) -->
+    <section class="bg-white py-16 px-4 border-y border-[#E1D4CB]">
+        <div class="max-w-5xl mx-auto space-y-12">
+            <div class="text-center space-y-3">
+                <h2 class="serif-title text-3xl md:text-4xl font-bold text-[#2D2522]">Olvídate de las dudas más estresantes de la crianza</h2>
+                <p class="text-[#5C4D46] max-w-xl mx-auto text-sm md:text-base">Alimentar a tu hijo no debería ser una fuente de ansiedad diaria o peleas en la mesa. Mira cómo transformamos tus miedos en total seguridad:</p>
             </div>
-            <div class="fade-in" style="background:white;padding:40px;border-radius:2.5rem;box-shadow:0 4px 24px rgba(0,0,0,0.06);border-bottom:4px solid var(--coral);">
-                <div style="font-size:3rem;margin-bottom:16px;">📈</div>
-                <h3 style="font-weight:900;font-size:1.3rem;margin-bottom:12px;color:#000;text-transform:uppercase;font-style:italic;">Bajo Peso</h3>
-                <p style="color:#64748b;font-style:italic;line-height:1.7;">Olvidate de las papillas industriales. Tu bebé necesita calorías reales y seguras para su curva.</p>
-            </div>
-            <div class="fade-in" style="background:white;padding:40px;border-radius:2.5rem;box-shadow:0 4px 24px rgba(0,0,0,0.06);border-bottom:4px solid var(--coral);">
-                <div style="font-size:3rem;margin-bottom:16px;">😱</div>
-                <h3 style="font-weight:900;font-size:1.3rem;margin-bottom:12px;color:#000;text-transform:uppercase;font-style:italic;">Ahogo</h3>
-                <p style="color:#64748b;font-style:italic;line-height:1.7;">No es el alimento, es el corte. Con nuestra técnica HD, el miedo desaparece para siempre.</p>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- ===== AUTORIDAD / QUIÉNES SOMOS ===== -->
-<section class="authority-section" style="padding:96px 24px;">
-    <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px;align-items:center;">
-        <div class="fade-in">
-            <div style="color:var(--coral);font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:16px;">Quiénes somos</div>
-            <h2 class="serif" style="font-size:clamp(2rem,4vw,3rem);font-style:italic;color:white;margin-bottom:20px;line-height:1.2;">El equipo detrás de Bebé Chat</h2>
-            <p style="color:#94a3b8;line-height:1.8;font-style:italic;margin-bottom:24px;">
-                Somos nutricionistas y mamás especializadas en alimentación complementaria e introducción de sólidos. 
-                Llevamos más de 5 años acompañando familias latinoamericanas a alimentar a sus bebés con confianza y seguridad.
-            </p>
-            <p style="color:#94a3b8;line-height:1.8;font-style:italic;">
-                Nuestra misión: que ninguna mamá sienta miedo en la hora de comer. 
-                El método Nutri-Safe nació de cientos de consultas reales — no de libros de texto.
-            </p>
-        </div>
-        <div class="fade-in" style="display:flex;flex-direction:column;gap:16px;">
-            <div style="background:rgba(255,255,255,0.06);border-radius:1.5rem;padding:24px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;gap:16px;">
-                <span style="font-size:2rem;">🏆</span>
-                <div>
-                    <div style="font-weight:800;color:white;font-size:1rem;">+2.400 familias</div>
-                    <div style="color:#64748b;font-size:13px;">Confiaron en el método Nutri-Safe</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Tarjeta 1 -->
+                <div class="premium-3d-card p-6 rounded-2xl">
+                    <div class="text-2xl mb-3">🥦</div>
+                    <h3 class="font-bold text-base text-[#2D2522] mb-2">Miedo al Ahogo</h3>
+                    <p class="text-xs text-[#5C4D46] leading-relaxed">Aprende la diferencia exacta entre el reflejo de arcada natural y un ahogo real. Recibe de inmediato fotos explicativas e instrucciones precisas de cortes seguros (BLW/Bliss) adecuados para cada mes de vida de tu bebé.</p>
                 </div>
-            </div>
-            <div style="background:rgba(255,255,255,0.06);border-radius:1.5rem;padding:24px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;gap:16px;">
-                <span style="font-size:2rem;">📚</span>
-                <div>
-                    <div style="font-weight:800;color:white;font-size:1rem;">5 años de experiencia</div>
-                    <div style="color:#64748b;font-size:13px;">En alimentación complementaria</div>
+                <!-- Tarjeta 2 -->
+                <div class="premium-3d-card p-6 rounded-2xl">
+                    <div class="text-2xl mb-3">🩸</div>
+                    <h3 class="font-bold text-base text-[#2D2522] mb-2">Prevención de Anemia</h3>
+                    <p class="text-xs text-[#5C4D46] leading-relaxed">A partir de los 6 meses, las reservas naturales de hierro de tu bebé disminuyen drásticamente. Nuestro sistema te propone combinaciones y menús diarios interactivos ultra ricos en hierro biodisponible para proteger su desarrollo cerebral.</p>
                 </div>
-            </div>
-            <div style="background:rgba(255,255,255,0.06);border-radius:1.5rem;padding:24px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;gap:16px;">
-                <span style="font-size:2rem;">🌎</span>
-                <div>
-                    <div style="font-weight:800;color:white;font-size:1rem;">Toda Latinoamérica</div>
-                    <div style="color:#64748b;font-size:13px;">Argentina, México, Colombia y más</div>
+                <!-- Tarjeta 3 -->
+                <div class="premium-3d-card p-6 rounded-2xl">
+                    <div class="text-2xl mb-3">⚖️</div>
+                    <h3 class="font-bold text-base text-[#2D2522] mb-2">Control de Peso Ideal</h3>
+                    <p class="text-xs text-[#5C4D46] leading-relaxed">Evita la obsesión dañina por las cantidades y los platos limpios a la fuerza. Nuestro método fomenta la autorregulación del infante, asegurando porciones balanceadas que respetan y cuidan su curva de crecimiento saludable.</p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ===== CONTENIDO DEL PRODUCTO ===== -->
-<section style="padding:96px 24px;max-width:1200px;margin:0 auto;">
-    <div style="text-align:center;margin-bottom:72px;">
-        <h2 class="serif fade-in" style="font-size:clamp(2rem,5vw,3.5rem);font-style:italic;color:#000;">
-            ¿Qué recibís exactamente?
-        </h2>
-        <p style="color:#64748b;font-style:italic;margin-top:12px;">Todo lo que necesitás para empezar hoy mismo</p>
-    </div>
-
-    <!-- ÍTEM 01 -->
-    <div style="display:flex;flex-direction:column;gap:16px;align-items:center;margin-bottom:80px;" class="feature-row fade-in">
-        <div style="flex:1;max-width:540px;">
-            <span class="step-num">01</span>
-            <h4 class="serif" style="font-size:clamp(2rem,4vw,3.5rem);font-style:italic;font-weight:900;color:#000;margin-bottom:16px;">Cortes HD de Seguridad</h4>
-            <p style="font-size:1.1rem;color:#64748b;font-style:italic;line-height:1.7;margin-bottom:20px;">Fotos reales de cómo cortar cada alimento según la edad de tu bebé. Sin dudas, sin miedo, seguridad total.</p>
-            <div style="display:flex;gap:10px;flex-wrap:wrap;">
-                <span style="background:#f0fdf4;color:#166534;font-size:12px;font-weight:700;padding:6px 14px;border-radius:99px;">40+ alimentos</span>
-                <span style="background:#fff5f2;color:var(--coral);font-size:12px;font-weight:700;padding:6px 14px;border-radius:99px;">Por edad y textura</span>
-                <span style="background:#f0f9ff;color:#0284c7;font-size:12px;font-weight:700;padding:6px 14px;border-radius:99px;">Fotos paso a paso</span>
-            </div>
-        </div>
-        <div style="flex:1;max-width:440px;width:100%;">
-            <div style="background:linear-gradient(135deg,#fff5f2,#fff);border:2px solid rgba(255,95,64,0.15);border-radius:2rem;padding:32px;">
-                <div style="font-size:13px;font-weight:800;color:#64748b;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:20px;">Vista previa · Guía de cortes</div>
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
-                    <div style="background:white;border-radius:1rem;padding:14px;box-shadow:0 2px 10px rgba(0,0,0,0.06);">
-                        <div style="font-size:22px;margin-bottom:6px;">🥕</div>
-                        <div style="font-size:12px;font-weight:800;">Zanahoria</div>
-                        <div style="font-size:10px;color:#64748b;">Bastones · Puré · Trocitos</div>
-                    </div>
-                    <div style="background:white;border-radius:1rem;padding:14px;box-shadow:0 2px 10px rgba(0,0,0,0.06);">
-                        <div style="font-size:22px;margin-bottom:6px;">🍗</div>
-                        <div style="font-size:12px;font-weight:800;">Pollo</div>
-                        <div style="font-size:10px;color:#64748b;">Desmechado · Tiras · Cubos</div>
-                    </div>
-                    <div style="background:white;border-radius:1rem;padding:14px;box-shadow:0 2px 10px rgba(0,0,0,0.06);">
-                        <div style="font-size:22px;margin-bottom:6px;">🍌</div>
-                        <div style="font-size:12px;font-weight:800;">Banana</div>
-                        <div style="font-size:10px;color:#64748b;">Entera · Mitades · Rodajas</div>
-                    </div>
-                    <div style="background:white;border-radius:1rem;padding:14px;box-shadow:0 2px 10px rgba(0,0,0,0.06);">
-                        <div style="font-size:22px;margin-bottom:6px;">🥚</div>
-                        <div style="font-size:12px;font-weight:800;">Huevo</div>
-                        <div style="font-size:10px;color:#64748b;">Revuelto · Duro · Tiras</div>
-                    </div>
-                </div>
-                <div style="text-align:center;margin-top:16px;font-size:11px;color:#94a3b8;font-weight:600;">Y 36 alimentos más incluidos →</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ÍTEM 02 -->
-    <div style="display:flex;flex-direction:column-reverse;gap:16px;align-items:center;" class="feature-row fade-in">
-        <div style="flex:1;max-width:540px;">
-            <span class="step-num">02</span>
-            <h4 class="serif" style="font-size:clamp(2rem,4vw,3.5rem);font-style:italic;font-weight:900;color:#000;margin-bottom:16px;text-transform:uppercase;">Batidos Power</h4>
-            <p style="font-size:1.1rem;color:#64748b;font-style:italic;line-height:1.7;margin-bottom:20px;">Fórmulas para subir la hemoglobina sin estreñimiento, desarrolladas por nutricionistas especializadas en primera infancia.</p>
-            <div class="vip-card" style="padding:24px;border-radius:1.5rem;margin-top:16px;">
-                <span class="vip-badge">RECETA EXCLUSIVA</span>
-                <h5 style="font-weight:900;color:var(--coral);font-style:italic;margin-bottom:8px;margin-top:8px;">Batido "Remolacha-Iron"</h5>
-                <p style="font-size:12px;color:#64748b;font-style:italic;margin-bottom:12px;">Combinación estratégica para máxima absorción de hierro sin efectos secundarios.</p>
-                <div style="display:flex;gap:8px;">
-                    <span style="background:#fce7f3;color:#9d174d;font-size:11px;font-weight:700;padding:4px 10px;border-radius:99px;">Remolacha</span>
-                    <span style="background:#f0fdf4;color:#166534;font-size:11px;font-weight:700;padding:4px 10px;border-radius:99px;">Espinaca</span>
-                    <span style="background:#fff7ed;color:#c2410c;font-size:11px;font-weight:700;padding:4px 10px;border-radius:99px;">Naranja</span>
-                </div>
-            </div>
-        </div>
-        <div style="flex:1;max-width:440px;width:100%;">
-            <div style="background:var(--dark);border-radius:2rem;padding:32px;text-align:center;">
-                <div style="width:80px;height:80px;background:var(--coral);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:2rem;">★</div>
-                <p style="font-weight:900;color:white;text-transform:uppercase;font-style:italic;letter-spacing:0.05em;margin-bottom:20px;">CONTENIDO VIP</p>
-                <div style="display:flex;flex-direction:column;gap:10px;text-align:left;">
-                    <div style="background:rgba(255,255,255,0.06);border-radius:0.75rem;padding:12px 16px;font-size:13px;color:#e2e8f0;">🩸 12 batidos para anemia</div>
-                    <div style="background:rgba(255,255,255,0.06);border-radius:0.75rem;padding:12px 16px;font-size:13px;color:#e2e8f0;">💪 8 batidos para ganar peso</div>
-                    <div style="background:rgba(255,255,255,0.06);border-radius:0.75rem;padding:12px 16px;font-size:13px;color:#e2e8f0;">🌿 10 batidos para el estreñimiento</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== TESTIMONIOS ===== -->
-<section class="testimonial-slider">
-    <h2 class="serif" style="font-size:clamp(1.8rem,4vw,3rem);color:white;text-align:center;margin-bottom:48px;font-style:italic;">
-        Mamás <span style="color:var(--coral);text-decoration:underline;">Bebé Chat</span>
-    </h2>
-    <div class="track">
-        <!-- Set 1 -->
-        <div class="testimonial-card">
-            <div class="star-row">★★★★★</div>
-            <p style="font-style:italic;font-weight:700;color:#1e293b;font-size:13px;line-height:1.6;margin-bottom:16px;">"Mi bebé no subía de peso y con los batidos Iron el pediatra quedó sorprendido en el control del cuarto mes."</p>
-            <div style="display:flex;align-items:center;gap:10px;">
-                <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#ff5f40,#ff8c69);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0;">V</div>
-                <div>
-                    <div style="font-weight:900;font-size:13px;color:var(--coral);">Valeria G.</div>
-                    <div style="font-size:11px;color:#94a3b8;">Mamá de Sofía, 9 meses · Argentina</div>
-                </div>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <div class="star-row">★★★★★</div>
-            <p style="font-style:italic;font-weight:700;color:#1e293b;font-size:13px;line-height:1.6;margin-bottom:16px;">"Por fin puedo comer tranquila mientras ella descubre sabores. La guía de cortes me dio la confianza que necesitaba."</p>
-            <div style="display:flex;align-items:center;gap:10px;">
-                <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#06b6d4);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0;">E</div>
-                <div>
-                    <div style="font-weight:900;font-size:13px;color:var(--coral);">Elena M.</div>
-                    <div style="font-size:11px;color:#94a3b8;">Mamá de Mateo, 7 meses · México</div>
-                </div>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <div class="star-row">★★★★★</div>
-            <p style="font-style:italic;font-weight:700;color:#1e293b;font-size:13px;line-height:1.6;margin-bottom:16px;">"La guía de cortes me quitó el miedo al ahogo el primer día. Ahora le doy banana entera y estoy tranquila."</p>
-            <div style="display:flex;align-items:center;gap:10px;">
-                <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#8b5cf6,#ec4899);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0;">S</div>
-                <div>
-                    <div style="font-weight:900;font-size:13px;color:var(--coral);">Sofía T.</div>
-                    <div style="font-size:11px;color:#94a3b8;">Mamá primeriza · Colombia</div>
-                </div>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <div class="star-row">★★★★★</div>
-            <p style="font-style:italic;font-weight:700;color:#1e293b;font-size:13px;line-height:1.6;margin-bottom:16px;">"Vale cada centavo. La tranquilidad de saber exactamente qué darle y cómo cortarlo no tiene precio."</p>
-            <div style="display:flex;align-items:center;gap:10px;">
-                <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#10b981,#059669);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0;">A</div>
-                <div>
-                    <div style="font-weight:900;font-size:13px;color:var(--coral);">Ana L.</div>
-                    <div style="font-size:11px;color:#94a3b8;">Mamá de Lucía, 10 meses · España</div>
-                </div>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <div class="star-row">★★★★★</div>
-            <p style="font-style:italic;font-weight:700;color:#1e293b;font-size:13px;line-height:1.6;margin-bottom:16px;">"Las recetas de hierro son deliciosas y fáciles. Mi pediatra me preguntó qué estaba haciendo diferente."</p>
-            <div style="display:flex;align-items:center;gap:10px;">
-                <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#f59e0b,#ef4444);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0;">M</div>
-                <div>
-                    <div style="font-weight:900;font-size:13px;color:var(--coral);">Marta R.</div>
-                    <div style="font-size:11px;color:#94a3b8;">Mamá de Tomás · Uruguay</div>
-                </div>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <div class="star-row">★★★★★</div>
-            <p style="font-style:italic;font-weight:700;color:#1e293b;font-size:13px;line-height:1.6;margin-bottom:16px;">"Increíble cómo cambió nuestra hora de almuerzo. Antes era un caos, ahora es mi momento favorito del día."</p>
-            <div style="display:flex;align-items:center;gap:10px;">
-                <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#06b6d4,#3b82f6);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0;">C</div>
-                <div>
-                    <div style="font-weight:900;font-size:13px;color:var(--coral);">Claudia B.</div>
-                    <div style="font-size:11px;color:#94a3b8;">Mamá de Isabella · Chile</div>
-                </div>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <div class="star-row">★★★★★</div>
-            <p style="font-style:italic;font-weight:700;color:#1e293b;font-size:13px;line-height:1.6;margin-bottom:16px;">"Mi hijo ahora come de todo. Empezamos a los 6 meses siguiendo el método y la diferencia fue inmediata."</p>
-            <div style="display:flex;align-items:center;gap:10px;">
-                <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#ec4899,#f43f5e);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0;">P</div>
-                <div>
-                    <div style="font-weight:900;font-size:13px;color:var(--coral);">Paula C.</div>
-                    <div style="font-size:11px;color:#94a3b8;">Mamá de Emilio, 1 año · Perú</div>
-                </div>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <div class="star-row">★★★★★</div>
-            <p style="font-style:italic;font-weight:700;color:#1e293b;font-size:13px;line-height:1.6;margin-bottom:16px;">"Guías súper claras, las fotos de los cortes son exactamente lo que necesitaba. Se entiende todo a la primera."</p>
-            <div style="display:flex;align-items:center;gap:10px;">
-                <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#84cc16,#16a34a);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0;">G</div>
-                <div>
-                    <div style="font-weight:900;font-size:13px;color:var(--coral);">Gabi D.</div>
-                    <div style="font-size:11px;color:#94a3b8;">Mamá de Renata · Bolivia</div>
-                </div>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <div class="star-row">★★★★★</div>
-            <p style="font-style:italic;font-weight:700;color:#1e293b;font-size:13px;line-height:1.6;margin-bottom:16px;">"La mejor inversión que hice como mamá primeriza. Me ahorré cientos de horas buscando información en internet."</p>
-            <div style="display:flex;align-items:center;gap:10px;">
-                <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#a78bfa,#7c3aed);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0;">L</div>
-                <div>
-                    <div style="font-weight:900;font-size:13px;color:var(--coral);">Lucía F.</div>
-                    <div style="font-size:11px;color:#94a3b8;">Mamá primeriza · Venezuela</div>
-                </div>
-            </div>
-        </div>
-        <!-- Duplicado para loop -->
-        <div class="testimonial-card">
-            <div class="star-row">★★★★★</div>
-            <p style="font-style:italic;font-weight:700;color:#1e293b;font-size:13px;line-height:1.6;margin-bottom:16px;">"Mi bebé no subía de peso y con los batidos Iron el pediatra quedó sorprendido en el control del cuarto mes."</p>
-            <div style="display:flex;align-items:center;gap:10px;">
-                <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#ff5f40,#ff8c69);display:flex;align-items:center;justify-content:center;color:white;font-weight:900;font-size:14px;flex-shrink:0;">V</div>
-                <div>
-                    <div style="font-weight:900;font-size:13px;color:var(--coral);">Valeria G.</div>
-                    <div style="font-size:11px;color:#94a3b8;">Mamá de Sofía, 9 meses · Argentina</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== SECCIÓN DE COMPRA ===== -->
-<section id="comprar" style="padding:96px 24px;background:#f8fafc;">
-    <div style="max-width:700px;margin:0 auto;background:white;border:2px solid rgba(255,95,64,0.2);border-radius:3rem;padding:56px 40px;box-shadow:0 20px 60px rgba(0,0,0,0.08);text-align:center;">
+    <!-- SECCIÓN DE CARACTERÍSTICAS (Estructura Z Completa) -->
+    <section class="py-16 px-4 max-w-6xl mx-auto space-y-24">
         
-        <div style="display:inline-block;background:var(--coral-light);color:var(--coral);font-size:12px;font-weight:900;padding:6px 16px;border-radius:99px;margin-bottom:24px;text-transform:uppercase;letter-spacing:0.08em;">
-            🔒 Acceso inmediato · 100% seguro
-        </div>
-
-        <h2 class="serif" style="font-size:clamp(2.2rem,5vw,4rem);margin-bottom:40px;color:#000;font-style:italic;">Tu momento es hoy</h2>
-        
-        <!-- LISTA DE BENEFICIOS -->
-        <div style="max-width:440px;margin:0 auto 40px;text-align:left;border-bottom:1px solid #f1f5f9;padding-bottom:32px;">
-            <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;font-weight:700;color:#1e293b;font-style:italic;">
-                <span style="color:var(--coral);font-size:18px;">✓</span>
-                <span>+180 recetas saludables para tu bebé</span>
+        <!-- Bloque 1 -->
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+            <div class="flex-1 space-y-4 text-center lg:text-left">
+                <span class="text-xs font-bold text-[#C47355] uppercase tracking-wider">Ítem 01 • Autonomía guiada</span>
+                <h3 class="serif-title text-2xl md:text-3xl font-bold text-[#2D2522]">Desarrollo psicomotriz avanzado desde el primer bocado</h3>
+                <p class="text-sm text-[#5C4D46] leading-relaxed">
+                    Al permitir que tu bebé explore texturas seguras por sí mismo con las pautas correctas, no solo estás nutriendo su cuerpo, sino potenciando activamente su <strong class="text-[#2D2522]">coordinación ojo-mano-boca</strong>. Este ejercicio constante fortalece los músculos de la masticación, lo cual está directamente relacionado con una excelente transición al lenguaje y habla futura.
+                </p>
             </div>
-            <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;font-weight:700;color:#1e293b;font-style:italic;">
-                <span style="color:var(--coral);font-size:18px;">✓</span>
-                <span>Guía completa de cortes HD por alimento y edad</span>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:12px;padding-top:8px;">
-                <div style="display:flex;justify-content:space-between;align-items:center;color:#64748b;font-size:14px;font-weight:600;font-style:italic;">
-                    <span>🎁 Introducción a la alimentación complementaria</span>
-                    <span style="color:var(--green);font-weight:900;font-size:13px;flex-shrink:0;margin-left:8px;">GRATIS</span>
+            <div class="flex-1 bg-white p-6 rounded-2xl border border-[#E1D4CB] shadow-md max-w-md w-full mx-auto space-y-4">
+                <div class="border-l-4 border-[#E75A36] pl-3 py-1">
+                    <h4 class="font-bold text-xs text-[#2D2522]">💡 Beneficio neuro-desarrollo</h4>
+                    <p class="text-[11px] text-[#5C4D46] mt-1">Manipular alimentos blandos y enteros activa de forma inmediata conexiones neuronales clave en el cerebro del infante que las papillas trituradas o licuadas pasivamente no logran estimular.</p>
                 </div>
-                <div style="display:flex;justify-content:space-between;align-items:center;color:#64748b;font-size:14px;font-weight:600;font-style:italic;">
-                    <span>🎁 Guía de alérgenos y laxantes naturales</span>
-                    <span style="color:var(--green);font-weight:900;font-size:13px;flex-shrink:0;margin-left:8px;">GRATIS</span>
+                <p class="text-xs text-gray-500 leading-relaxed">El sistema te enseña a identificar el momento exacto en que tu hijo está neurológicamente listo para recibir texturas más complejas, eliminando la incertidumbre del proceso.</p>
+            </div>
+        </div>
+
+        <!-- Bloque 2 -->
+        <div class="flex flex-col lg:flex-row-reverse items-center gap-12">
+            <div class="flex-1 space-y-4 text-center lg:text-left">
+                <span class="text-xs font-bold text-[#C47355] uppercase tracking-wider">Ítem 02 • Practicidad absoluta</span>
+                <h3 class="serif-title text-2xl md:text-3xl font-bold text-[#2D2522]">Cocina una sola vez para toda la familia sin estrés</h3>
+                <p class="text-sm text-[#5C4D46] leading-relaxed">
+                    Se acabó por completo el tener que licuar ollas diferentes, pasar horas extra limpiando procesadores o preparar menús especiales aislados. Te enseñamos a adaptar las comidas saludables de los adultos con variaciones mínimas de presentación y condimentos para que tu bebé se integre a la mesa familiar de forma natural, feliz y sin esfuerzo.
+                </p>
+            </div>
+            <div class="flex-1 bg-white p-6 rounded-2xl border border-[#E1D4CB] shadow-md max-w-md w-full mx-auto space-y-4">
+                <div class="border-l-4 border-[#2D2522] pl-3 py-1">
+                    <h4 class="font-bold text-xs text-[#2D2522]">⏱️ Ahorro de tiempo real y diario</h4>
+                    <p class="text-[11px] text-[#5C4D46] mt-1">Reduce hasta un 70% el tiempo que pasas metida en la cocina ideando platos complejos que muchas veces terminan rechazados o en el suelo.</p>
                 </div>
-                <div style="display:flex;justify-content:space-between;align-items:center;color:#64748b;font-size:14px;font-weight:600;font-style:italic;">
-                    <span>🎁 Menú completo x 21 días</span>
-                    <span style="color:var(--green);font-weight:900;font-size:13px;flex-shrink:0;margin-left:8px;">GRATIS</span>
+                <p class="text-xs text-gray-500 leading-relaxed">Con las listas de compras interactivas y las pautas de organización semanal (*Batch Cooking* adaptado), sabrás exactamente qué hacer en menos de 20 minutos al día.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SECCIÓN DE TESTIMONIOS (Fotos Reales de Stock Premium) -->
+    <section class="bg-[#F3EDE4] py-16 px-4 border-t border-[#E1D4CB]">
+        <div class="max-w-6xl mx-auto space-y-10">
+            <div class="text-center space-y-2">
+                <h2 class="serif-title text-3xl font-bold text-[#2D2522]">Mamás reales, resultados reales</h2>
+                <p class="text-xs md:text-sm text-[#5C4D46]">Mira la experiencia de quienes confiaron en el Nutri-Safe System para transformar las comidas en momentos de paz.</p>
+            </div>
+
+            <!-- Carrusel Responsivo -->
+            <div class="testimonial-track gap-4 md:gap-6 pb-4">
+                
+                <!-- Testimonio 1 -->
+                <div class="testimonial-item bg-white p-6 rounded-2xl shadow-sm border border-[#E1D4CB] flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex text-yellow-500 text-sm">★★★★★</div>
+                        <p class="text-xs text-[#5C4D46] italic leading-relaxed">"Vivía con un terror paralizante de que mi gordo se ahogara con cualquier trozo. El primer día que usé el asistente en WhatsApp me dio tanta claridad sobre los tipos de cortes que me animé. Hoy come feliz, agarra todo solo y yo puedo sentarme a almorzar tranquila por fin."</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100 mt-4">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&h=120&q=80" alt="Mariana L." class="w-10 h-10 rounded-full object-cover border-2 border-[#C47355]">
+                        <div>
+                            <h4 class="text-xs font-bold text-[#2D2522]">Mariana L.</h4>
+                            <p class="text-[10px] text-[#7A6860]">Mamá de Mateo (7 meses)</p>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Testimonio 2 -->
+                <div class="testimonial-item bg-white p-6 rounded-2xl shadow-sm border border-[#E1D4CB] flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex text-yellow-500 text-sm">★★★★★</div>
+                        <p class="text-xs text-[#5C4D46] italic leading-relaxed">"Lo mejor de todo es que está directamente en WhatsApp. Si tengo una duda con un alimento nuevo mientras estoy en el supermercado, le pregunto al chat y al instante sé si es apto y cómo prepararlo en casa. Me salvó la vida y la organización del menú semanal."</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100 mt-4">
+                        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=120&h=120&q=80" alt="Valeria G." class="w-10 h-10 rounded-full object-cover border-2 border-[#C47355]">
+                        <div>
+                            <h4 class="text-xs font-bold text-[#2D2522]">Valeria G.</h4>
+                            <p class="text-[10px] text-[#7A6860]">Mamá de Emma (9 meses)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 3 -->
+                <div class="testimonial-item bg-white p-6 rounded-2xl shadow-sm border border-[#E1D4CB] flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="flex text-yellow-500 text-sm">★★★★★</div>
+                        <p class="text-xs text-[#5C4D46] italic leading-relaxed">"Mi pediatra nos advirtió severamente sobre los niveles de hierro a los 6 meses. Gracias a las recetas interactivas y combinaciones ricas en hierro de este sistema, los exámenes de control de sangre de mi bebé salieron perfectos. Vale cada centavo por la tranquilidad mental."</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100 mt-4">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&h=120&q=80" alt="Paula C." class="w-10 h-10 rounded-full object-cover border-2 border-[#C47355]">
+                        <div>
+                            <h4 class="text-xs font-bold text-[#2D2522]">Paula C.</h4>
+                            <p class="text-[10px] text-[#7A6860]">Mamá de Tomás (11 meses)</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
+    </section>
 
-        <!-- PRECIO -->
-        <p style="color:#000;font-weight:900;font-size:14px;font-style:italic;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;">ACCESO COMPLETO POR SOLO:</p>
-        <div class="price-display" style="margin-bottom:12px;">
-            <div style="display:flex;align-items:flex-start;justify-content:center;font-weight:900;color:#000;line-height:1;">
-                <span style="font-size:2.5rem;margin-top:20px;">$</span>
-                <span style="font-size:clamp(6rem,15vw,9rem);">9</span>
-                <span style="font-size:2.5rem;margin-top:20px;">.99</span>
-            </div>
-            <div style="font-size:12px;color:#94a3b8;font-weight:600;margin-top:-8px;">USD · Pago único · Acceso de por vida</div>
-        </div>
-
-        <!-- EQUIVALENCIA LOCAL -->
-        <div style="background:#f8fafc;border-radius:0.75rem;padding:10px 16px;margin-bottom:24px;font-size:12px;color:#64748b;font-weight:600;">
-            💡 Equivale a menos de un café por semana de información que dura toda la crianza
-        </div>
-
-        <!-- CTA -->
-        <div style="max-width:340px;margin:0 auto 20px;">
-            <a href="https://go.hotmart.com/H104335447R?ap=ff26" onclick="trackCheckout()" class="btn-action" style="font-size:1.3rem;">
-                <span>🔓</span> ¡ACCESO VIP AHORA!
-            </a>
-        </div>
-
-        <!-- GARANTÍA -->
-        <div class="garantia-badge" style="max-width:380px;margin:0 auto 20px;">
-            <span style="font-size:28px;">🛡️</span>
-            <div style="text-align:left;">
-                <div style="font-weight:800;font-size:14px;color:#166534;">Garantía total de 7 días</div>
-                <div style="font-size:12px;color:#4ade80;margin-top:2px;">Si no quedás satisfecha, te devolvemos el 100% sin preguntas</div>
+    <!-- SECCIÓN DE CTA DE CIERRE (Anti-Fugas) -->
+    <section class="py-16 px-4 bg-white text-center border-t border-[#E1D4CB]">
+        <div class="max-w-xl mx-auto space-y-6">
+            <h2 class="serif-title text-2xl md:text-3xl font-bold text-[#2D2522]">Dale a tu hijo el mejor comienzo alimentario posible</h2>
+            <p class="text-xs md:text-sm text-[#5C4D46] leading-relaxed">Por solo un pago único de <strong class="text-[#2D2522] text-base">$9.99</strong> obtienes acceso ilimitado y de por vida a todas las guías explicativas, recetas interactivas paso a paso y soporte inteligente 24/7. Sin mensualidades ocultas ni renovaciones anuales.</p>
+            
+            <div class="pt-2">
+                <button onclick="trackCheckout()" class="w-full sm:w-auto bg-[#E75A36] hover:bg-[#C44E2E] text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all cursor-pointer">
+                    ¡Comenzar de forma segura hoy!
+                </button>
+                <p class="text-[11px] text-gray-400 mt-2">🛡️ Garantía incondicional de devolución de 7 días respaldada por Hotmart.</p>
             </div>
         </div>
+    </section>
 
-        <!-- MEDIOS DE PAGO -->
-        <div class="payment-icons">
-            <span>Aceptamos:</span>
-            <span class="payment-chip">VISA</span>
-            <span class="payment-chip">Mastercard</span>
-            <span class="payment-chip">PayPal</span>
-            <span class="payment-chip">Débito</span>
-            <span class="payment-chip">Mercado Pago</span>
-        </div>
-    </div>
-</section>
+    <!-- FOOTER -->
+    <footer class="bg-[#2D2522] text-gray-400 text-[10px] py-8 text-center px-4 space-y-2 border-t border-black">
+        <p>© 2026 Bebé Chat - Nutri-Safe System. Todos los derechos reservados.</p>
+        <p class="max-w-xl mx-auto text-gray-500 leading-normal">Este sitio web no forma parte de Meta Platforms, Inc. Además, este sitio NO está respaldado por Meta de ninguna manera. Los resultados y tiempos pueden variar de acuerdo al desarrollo individual, madurez y ritmo de cada infante.</p>
+    </footer>
 
-<!-- ===== FOOTER ===== -->
-<footer style="padding:64px 24px;border-top:1px solid #f1f5f9;text-align:center;">
-    <div style="max-width:500px;margin:0 auto;">
-        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--coral),#ff8c69);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:2rem;box-shadow:0 8px 24px rgba(255,95,64,0.3);">
-            🍼
-        </div>
-        <h3 class="serif" style="font-size:1.8rem;font-style:italic;font-weight:900;color:#000;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.03em;">Bebé Chat</h3>
-        <p style="color:#64748b;font-size:13px;margin-bottom:4px;font-weight:600;">Nutri-Safe System · Especialistas en alimentación complementaria</p>
-        <p style="color:#94a3b8;font-size:12px;font-style:italic;margin-bottom:32px;">Ayudando a familias latinoamericanas a criar sin miedos desde 2020</p>
-        <div style="display:flex;justify-content:center;gap:24px;margin-bottom:32px;flex-wrap:wrap;">
-            <a href="#" style="color:#94a3b8;font-size:12px;font-weight:600;text-decoration:none;border-bottom:1px solid #e2e8f0;padding-bottom:2px;">Política de privacidad</a>
-            <a href="#" style="color:#94a3b8;font-size:12px;font-weight:600;text-decoration:none;border-bottom:1px solid #e2e8f0;padding-bottom:2px;">Términos y condiciones</a>
-            <a href="#" style="color:#94a3b8;font-size:12px;font-weight:600;text-decoration:none;border-bottom:1px solid #e2e8f0;padding-bottom:2px;">Contacto</a>
-        </div>
-        <p style="font-size:10px;font-weight:700;color:#cbd5e1;text-transform:uppercase;letter-spacing:0.4em;">&copy; 2026 BEBÉ CHAT · NUTRI-SAFE SYSTEM</p>
-    </div>
-</footer>
-
-<script>
-    // ===== SCROLL ANIMATIONS =====
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // ===== RESPONSIVE HERO GRID =====
-    function adjustHero() {
-        const grid = document.querySelector('.hero-grid');
-        if(!grid) return;
-        if(window.innerWidth >= 1024) {
-            grid.style.gridTemplateColumns = '1fr 1fr';
-        } else {
-            grid.style.gridTemplateColumns = '1fr';
-        }
-        const featureRows = document.querySelectorAll('.feature-row');
-        featureRows.forEach((row, i) => {
-            if(window.innerWidth >= 1024) {
-                row.style.flexDirection = i % 2 === 0 ? 'row' : 'row-reverse';
-            } else {
-                row.style.flexDirection = 'column';
-            }
-        });
-    }
-    adjustHero();
-    window.addEventListener('resize', adjustHero);
-</script>
 </body>
 </html>
